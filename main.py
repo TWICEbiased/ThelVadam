@@ -259,7 +259,20 @@ async def on_message(message):
     elif message.content.startswith('!tv tu o chocolat'):
         await message.channel.send('Chocolat es muy buena amiga y BOT. Los dos hacemos bien nuestro trabajo :3.')
     elif message.content.startswith("!tv diversity"):
+        await message.delete()
         await diversity(message)
+    elif message.content.startswith("!tv lgbt"):
+        await message.delete()
+        await diversity(message)
+    elif message.content.startswith("!tv lgtb"):
+        await message.delete()
+        await message.channel.send('La B va antes de la T :3.')
+    elif message.content.startswith("!tv LGBT"):
+        await message.delete()
+        await diversity(message)
+    elif message.content.startswith("!tv LGTB"):
+        await message.delete()
+        await message.channel.send('La B va antes de la T :3.')
 
 
 async def desicionamor(message):
@@ -486,6 +499,7 @@ async def diversity(message):
     linea = random_line
     print(linea)
     embed.set_image(url=linea)
+    embed.set_description("Comando secreto 1/3")
     await message.channel.send(nombre2)
     await message.channel.send(embed=embed)
 
