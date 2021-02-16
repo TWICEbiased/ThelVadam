@@ -499,7 +499,7 @@ async def diversity(message):
     linea = random_line
     print(linea)
     embed.set_image(url=linea)
-    embed.set_description("Comando secreto 1/3")
+    embed.set_footer(text="Comando secreto 1/1")
     await message.channel.send(nombre2)
     await message.channel.send(embed=embed)
 
