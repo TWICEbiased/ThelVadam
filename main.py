@@ -246,8 +246,6 @@ async def on_message(message):
               print("Error") 
 
           await message.delete()
-          handler = open('noticia.txt')
-          noticia = handler.read()
 
           embed = discord.Embed(
 
@@ -318,6 +316,18 @@ async def on_message(message):
         await auto1(message)
     elif message.content.startswith("!tv sobreti"):
         await sobremi(message)
+    elif message.content.startswith("!tv warthog"):
+        await espachurrar(message)
+    elif message.content.startswith("!tv kill"):
+        await matar(message)
+    elif message.content.startswith("!tv matar"):
+        await matar(message)
+    elif message.content.startswith("!tv scorpion"):
+        await scorpion(message)
+    elif message.content.startswith("!tv sniper"):
+        await sniper(message)
+    elif message.content.startswith("!tv teabag"):
+        await teabag(message)
 
 async def timehora(message):
 
@@ -1215,5 +1225,165 @@ async def sobremi(message):
     #message_channel = client.get_channel(803850947734011925)
     await message.author.send(embed = embed)
     await message.delete()
+
+async def espachurrar(message):
+    try:
+        espa1 = message.content
+        listaespa = list(espa1.split(" "))
+        nombre1 = str(message.author.id)
+        nombre2 = "<@!" + nombre1 + ">"
+        if listaespa[2] == nombre2:
+            await message.channel.send('¿Te espachurarrás a tí mismo? O.o')
+        elif listaespa[2] == "<@!806203127451615252>":
+            await message.channel.send('Ejem... Mejor no lo haga compa, si no quiere salir volando hasta Paraguay (que por cierto no existe XD)')
+        else:
+            await message.channel.send('<@' + nombre1 + '> ha espachurrado a ' + listaespa[2] + '! O.o')
+            await gifespa(message)
+    except:
+        await message.channel.send('No seas burro. Tienes que mencionar a alguien ._.')
+
+async def gifespa(message):
+    embed = discord.Embed(
+
+        title="ThelVadam",
+        color=discord.Colour.random()
+
+    )
+    linea = ""
+    file = copen("espachimagen.txt")
+    lines = file.count('\n')
+    random_line = file.getline(randint(1, lines))
+    linea = random_line
+    print(linea)
+    embed.set_image(url=linea)
+    await message.channel.send(embed=embed)    
+
+async def matar(message):
+    try:
+        mat1 = message.content
+        listamatar = list(mat1.split(" "))
+        nombre1 = str(message.author.id)
+        nombre2 = "<@!" + nombre1 + ">"
+        if listamatar[2] == nombre2:
+            await message.channel.send('No compa no lo haga, el suic1dio nunca es la opción, tiene muchas razones para vivir :c')
+        elif listamatar[2] == "<@!806203127451615252>":
+            await message.channel.send('Acércate pt, vas a ver que te hago caca en 2 segundos...')
+        else:
+            await message.channel.send('<@' + nombre1 + '> le dio en su maiz a ' + listamatar[2] + '! D:')
+            await gifmat(message)
+    except:
+        await message.channel.send('No seas burro. Si no quieres que te mate yo, tienes que mencionar a alguien ._.')
+
+async def gifmat(message):
+    embed = discord.Embed(
+
+        title="ThelVadam",
+        color=discord.Colour.random()
+
+    )
+    linea = ""
+    file = copen("mattimagen.txt")
+    lines = file.count('\n')
+    random_line = file.getline(randint(1, lines))
+    linea = random_line
+    print(linea)
+    embed.set_image(url=linea)
+    await message.channel.send(embed=embed)
+
+async def scorpion(message):
+    try:
+        scor1 = message.content
+        listascor = list(scor1.split(" "))
+        nombre1 = str(message.author.id)
+        nombre2 = "<@!" + nombre1 + ">"
+        if listascor[2] == nombre2:
+            await message.channel.send('¿Te dispararás a tí mismo? O.o')
+        elif listascor[2] == "<@!806203127451615252>":
+            await message.channel.send('Ejem... Mejor no lo haga compa, si no quiere explotar ni lo intente...')
+        else:
+            await message.channel.send('<@' + nombre1 + '> le ha disparado con un scorpion a ' + listascor[2] + '! O.o')
+            await gifscor(message)
+    except:
+        await message.channel.send('No seas burro. Tienes que mencionar a alguien ._.')
+
+async def gifscor(message):
+    embed = discord.Embed(
+
+        title="ThelVadam",
+        color=discord.Colour.random()
+
+    )
+    linea = ""
+    file = copen("scorimagen.txt")
+    lines = file.count('\n')
+    random_line = file.getline(randint(1, lines))
+    linea = random_line
+    print(linea)
+    embed.set_image(url=linea)
+    await message.channel.send(embed=embed)
+
+async def sniper(message):
+    try:
+        sniper1 = message.content
+        listasniper = list(sniper1.split(" "))
+        nombre1 = str(message.author.id)
+        nombre2 = "<@!" + nombre1 + ">"
+        if listasniper[2] == nombre2:
+            await message.channel.send('¿Te dispararás a tí mismo? O.o')
+        elif listasniper[2] == "<@!806203127451615252>":
+            await message.channel.send('Ejem... Mejor no lo haga compa, si no quiere una bala en su cola ni lo intente...')
+        else:
+            await message.channel.send('<@' + nombre1 + '> ha snipeado ' + listasniper[2] + '! Bien pro.')
+            await gifsniper(message)
+    except:
+        await message.channel.send('No seas burro. Tienes que mencionar a alguien ._.')
+
+async def gifsniper(message):
+    embed = discord.Embed(
+
+        title="ThelVadam",
+        color=discord.Colour.random()
+
+    )
+    linea = ""
+    file = copen("sniperimagen.txt")
+    lines = file.count('\n')
+    random_line = file.getline(randint(1, lines))
+    linea = random_line
+    print(linea)
+    embed.set_image(url=linea)
+    await message.channel.send(embed=embed)
+
+async def teabag(message):
+    try:
+        tea1 = message.content
+        listatea = list(tea1.split(" "))
+        nombre1 = str(message.author.id)
+        nombre2 = "<@!" + nombre1 + ">"
+        if listatea[2] == nombre2:
+            await message.channel.send('¿Te vas a chupar los huevos tú mismo? O.o')
+        elif listatea[2] == "<@!806203127451615252>":
+            await message.channel.send('Yo te voy a teabaguear a ti pt')
+        else:
+            await message.channel.send('TEABAG FATALITY A ' + listatea[2] + '!')
+            await gifteabag(message)
+    except:
+        await message.channel.send('No seas burro. Tienes que mencionar a alguien ._.')
+
+async def gifteabag(message):
+    embed = discord.Embed(
+
+        title="ThelVadam",
+        color=discord.Colour.random()
+
+    )
+    linea = ""
+    file = copen("teaimagen.txt")
+    lines = file.count('\n')
+    random_line = file.getline(randint(1, lines))
+    linea = random_line
+    print(linea)
+    embed.set_image(url=linea)
+    await message.channel.send(embed=embed)
 
 client.run(os.getenv('TOKEN'))
