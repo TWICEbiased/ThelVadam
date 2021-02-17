@@ -24,6 +24,9 @@ import asyncio
 import datetime as dt
 from linereader import copen
 from keep_alive import keep_alive
+import requests
+from bs4 import BeautifulSoup
+import urllib.request
 
 keep_alive()
 client = discord.Client()
@@ -44,7 +47,8 @@ async def on_ready():
         client.run('ODA2MjAzMTI3NDUxNjE1MjUy.YBmBLA.oGty49z0tDr92ENq_tQdyqNxpCk')
             
 @client.event
-async def on_message(message):
+async def on_message(message): 
+          
     if message.author == client.user:
         return
     mensaje1 = message.content
@@ -161,29 +165,21 @@ async def on_message(message):
         nombre1 = str(message.author.id)
         await message.channel.send('¡Buen día, <@' + nombre1 + '>! No olvides cuidarte de la infección del flood :3')
     elif message.content.startswith('que hora es'):
-        hora = time.strftime("%H:%M:%S")
-        await message.channel.send('Son las ' + hora)
+        await timehora(message)
     elif message.content.startswith('qué hora es'):
-        hora = time.strftime("%H:%M:%S")
-        await message.channel.send('Son las ' + hora)
+        await timehora(message)
     elif message.content.startswith('que hora son'):
-        hora = time.strftime("%H:%M:%S")
-        await message.channel.send('Son las ' + hora)
+        await timehora(message)
     elif message.content.startswith('qué hora son'):
-        hora = time.strftime("%H:%M:%S")
-        await message.channel.send('Son las ' + hora)
+        await timehora(message)
     elif message.content.startswith('Que hora es'):
-        hora = time.strftime("%H:%M:%S")
-        await message.channel.send('Son las ' + hora)
+        await timehora(message)
     elif message.content.startswith('Qué hora es'):
-        hora = time.strftime("%H:%M:%S")
-        await message.channel.send('Son las ' + hora)
+        await timehora(message)
     elif message.content.startswith('Que hora son'):
-        hora = time.strftime("%H:%M:%S")
-        await message.channel.send('Son las ' + hora)
+        await timehora(message)
     elif message.content.startswith('Qué hora son'):
-        hora = time.strftime("%H:%M:%S")
-        await message.channel.send('Son las ' + hora)
+        await timehora(message)
     elif message.content.startswith('!tv me ama'):
         await desicionamor(message)
     elif message.content.startswith('!tv ayuda'):
@@ -219,10 +215,49 @@ async def on_message(message):
                 await message.channel.send('Lo siento, no tienes permiso para ejecutar este comando ^_^')
         
     elif message.content.startswith('!tv noticia'):
-        handler = open('noticia.txt')
-        noticia = handler.read()
-        #message_channel = client.get_channel(803850947734011925)
-        await message.channel.send(noticia)
+            # the target we want to open     
+          url='https://www.3djuegos.com/n3/1058/0/halo/'
+      
+            #open with GET method 
+          resp=requests.get(url) 
+      
+            #http_respone 200 means OK status 
+          if resp.status_code==200: 
+              print("Successfully opened the web page") 
+      
+                # we need a parser,Python built-in HTML parser is enough . 
+              soup=BeautifulSoup(resp.text,'html.parser')     
+  
+                # l is the list which contains all the text i.e news  
+              l=soup.find("div",{"class":"s4 c3"}) 
+      
+                #now we want to print only the text part of the anchor. 
+                #find all the elements of a, i.e anchor 
+              nott = soup.find_all('article') 
+              noticion = str(nott[0].text)
+              listanot = list(noticion.split("Leer más »"))
+              noticiota = str(listanot[0])
+              if "Leer más »" in listanot:
+                  listanot.remove("Leer más »")
+
+              #f = open("noticia.txt","w")
+              #f.write(noticiota)
+          else: 
+              print("Error") 
+
+          await message.delete()
+          handler = open('noticia.txt')
+          noticia = handler.read()
+
+          embed = discord.Embed(
+
+              title="Noticia semanal de HALO",
+              description=noticiota,
+              color=discord.Colour.magenta()
+              
+          )
+          await message.channel.send(embed=embed)
+
     elif message.content.startswith('wat ben ik'):
             nombre1 = str(message.author.id)
             nombre2 = "<@!" + nombre1 + ">"
@@ -273,7 +308,21 @@ async def on_message(message):
     elif message.content.startswith("!tv LGTB"):
         await message.delete()
         await message.channel.send('La B va antes de la T :3.')
+    elif message.content.startswith("!tv horoscopo"):
+        await horoscopo(message)
+    elif message.content.startswith("!tv horóscopo"):
+        await horoscopo(message)
+    elif message.content.startswith("!tv autobiografia"):
+        await auto1(message)
+    elif message.content.startswith("!tv autobiografía"):
+        await auto1(message)
+    elif message.content.startswith("!tv sobreti"):
+        await sobremi(message)
 
+async def timehora(message):
+
+    hora = time.strftime("%H:%M:%S")
+    await message.channel.send('Son las ' + hora)
 
 async def desicionamor(message):
     try:
@@ -286,7 +335,7 @@ async def desicionamor(message):
             await message.channel.send('Sí uwu. ' + listaamor[3] + 'te ama <3')
             desicion = random.choice(desicionlista)
         elif desicion == "2":
-            await message.channel.send('No ¬¬. ' + listaamor[3] + 'no tiene sentimientos >:(')
+            await message.channel.send('No ¬¬. ' + listaamor[3] + ' no tiene sentimientos >:(')
             desicion = random.choice(desicionlista)
         elif desicion == "3":
             await message.channel.send('Tal vez ' + listaamor[3] + ' te ama XD.')
@@ -331,47 +380,11 @@ async def desicionpendejo(message):
         listapendejo = list(pendejo1.split(" "))
         pendejo2 = listapendejo[3]
         print("Es pendejo " + pendejo2 +" XD")
-        desicionlistapen = ["1","2","3","4","5","6","7","8","9","10","11","12"]
-        desicionpen = ""
-        desicionpen = random.choice(desicionlistapen)
-        if desicionpen == "1":
-            await message.channel.send('Sí XD.')
-            desicionpen = random.choice(desicionlistapen)
-        elif desicionpen == "2":
-            await message.channel.send('No xdd.')
-            desicionpen = random.choice(desicionlistapen)
-        elif desicionpen == "3":
-            await message.channel.send('Tal vez XD.')
-            desicionpen = random.choice(desicionlistapen)
-        elif desicionpen == "4":
-            await message.channel.send('No creo, ese we me madreó en un 1v1 XD.')
-            desicionpen = "1"
-        elif desicionpen == "5":
-            await message.channel.send('Puede ser :p.')
-            desicionpen = random.choice(desicionlistapen)
-        elif desicionpen == "10":
-            await message.channel.send('No creo pero ps va XD.')
-            desicionpen = random.choice(desicionlistapen)
-        elif desicionpen == "7":
-            await message.channel.send('Si llega a un concurso de pendejos, pierde por pendejo XD [JODA].')
-            desicionpen = random.choice(desicionlistapen)
-        elif desicionpen == "8":
-            await message.channel.send('Nah, se ve listillo el parce.')
-            desicionpen = random.choice(desicionlistapen)
-        elif desicionpen == "9":
-            await message.channel.send('Epale aguas con mi pana no lo esté molestando.')
-            desicionpen = random.choice(desicionlistapen)
-        elif desicionpen == "10":
-            await message.channel.send('Ps... creo que sí.')
-            desicionpen = random.choice(desicionlistapen)
-        elif desicionpen == "11":
-            await message.channel.send('El pendejo es uste xd.')
-            desicionpen = "2"
-        elif desicionpen == "12":
-            await message.channel.send('¿Es joda verdad?')
-            desicionpen = random.choice(desicionlistapen)
-        else:
-            await message.channel.send('¿Eh? No entendí. Repite por favor :).')
+        file = copen("deisicionpen.txt")
+        lines = file.count('\n')
+        random_line = file.getline(randint(1, lines))
+        linea = random_line
+        await message.channel.send(linea)
     except:
         await message.channel.send('No seas pendejo mijo :3. Menciona a alguien ._.')
 async def ayuda(message):
@@ -499,8 +512,708 @@ async def diversity(message):
     linea = random_line
     print(linea)
     embed.set_image(url=linea)
-    embed.set_footer(text="Comando secreto 1/1")
+    embed.set_footer(text="Comando secreto 1/4")
     await message.channel.send(nombre2)
     await message.channel.send(embed=embed)
+
+async def horoscopo(message):
+    try:
+        horosc = message.content
+        listahorosc = list(horosc.split(" "))
+        if  "aries" in listahorosc:
+            tuhoroscopo = str(listahorosc[2])
+            horsemanal = "Horóscopo semanal para " + tuhoroscopo
+            # the target we want to open     
+            url='https://www.msn.com/es-mx/estilo-de-vida/horoscopos/aries-hor%C3%B3scopo-diario-gratis/ar-AAyQCeq/'
+      
+            #open with GET method 
+            resp=requests.get(url) 
+      
+            #http_respone 200 means OK status 
+            if resp.status_code==200: 
+                print("Successfully opened the web page") 
+      
+                # we need a parser,Python built-in HTML parser is enough . 
+                soup=BeautifulSoup(resp.text,'html.parser')     
+  
+                hor = soup.find_all('p') 
+                hors = str(hor[0].text)
+
+
+            else: 
+                print("Error")
+
+        elif  "Aries" in listahorosc:
+            tuhoroscopo = str(listahorosc[2])
+            horsemanal = "Horóscopo semanal para " + tuhoroscopo
+            # the target we want to open     
+            url='https://www.msn.com/es-mx/estilo-de-vida/horoscopos/aries-hor%C3%B3scopo-diario-gratis/ar-AAyQCeq/'
+      
+            #open with GET method 
+            resp=requests.get(url) 
+      
+            #http_respone 200 means OK status 
+            if resp.status_code==200: 
+                print("Successfully opened the web page") 
+      
+                # we need a parser,Python built-in HTML parser is enough . 
+                soup=BeautifulSoup(resp.text,'html.parser')     
+  
+                hor = soup.find_all('p') 
+                hors = str(hor[0].text)
+
+
+            else: 
+                print("Error")
+
+        elif  "tauro" in listahorosc:
+            tuhoroscopo = str(listahorosc[2])
+            horsemanal = "Horóscopo semanal para " + tuhoroscopo
+            # the target we want to open     
+            url='https://www.msn.com/es-mx/estilo-de-vida/horoscopos/tauro-hor%C3%B3scopo-diario-gratis/ar-AAyQHkq'
+      
+            #open with GET method 
+            resp=requests.get(url) 
+      
+            #http_respone 200 means OK status 
+            if resp.status_code==200: 
+                print("Successfully opened the web page") 
+      
+                # we need a parser,Python built-in HTML parser is enough . 
+                soup=BeautifulSoup(resp.text,'html.parser')     
+  
+                hor = soup.find_all('p') 
+                hors = str(hor[0].text)
+
+
+            else: 
+                print("Error")
+
+        elif  "Tauro" in listahorosc:
+            tuhoroscopo = str(listahorosc[2])
+            horsemanal = "Horóscopo semanal para " + tuhoroscopo
+            # the target we want to open     
+            url='https://www.msn.com/es-mx/estilo-de-vida/horoscopos/tauro-hor%C3%B3scopo-diario-gratis/ar-AAyQHkq'
+      
+            #open with GET method 
+            resp=requests.get(url) 
+      
+            #http_respone 200 means OK status 
+            if resp.status_code==200: 
+                print("Successfully opened the web page") 
+      
+                # we need a parser,Python built-in HTML parser is enough . 
+                soup=BeautifulSoup(resp.text,'html.parser')     
+  
+                hor = soup.find_all('p') 
+                hors = str(hor[0].text)
+
+
+            else: 
+                print("Error")
+
+        elif  "geminis" in listahorosc:
+            tuhoroscopo = str(listahorosc[2])
+            horsemanal = "Horóscopo semanal para " + tuhoroscopo
+            # the target we want to open     
+            url='https://www.msn.com/es-mx/estilo-de-vida/horoscopos/g%C3%A9minis-hor%C3%B3scopo-diario-gratis/ar-AAyQM8E'
+      
+            #open with GET method 
+            resp=requests.get(url) 
+      
+            #http_respone 200 means OK status 
+            if resp.status_code==200: 
+                print("Successfully opened the web page") 
+      
+                # we need a parser,Python built-in HTML parser is enough . 
+                soup=BeautifulSoup(resp.text,'html.parser')     
+  
+                hor = soup.find_all('p') 
+                hors = str(hor[0].text)
+
+
+            else: 
+                print("Error")
+
+        elif  "Geminis" in listahorosc:
+            tuhoroscopo = str(listahorosc[2])
+            horsemanal = "Horóscopo semanal para " + tuhoroscopo
+            # the target we want to open     
+            url='https://www.msn.com/es-mx/estilo-de-vida/horoscopos/g%C3%A9minis-hor%C3%B3scopo-diario-gratis/ar-AAyQM8E'
+      
+            #open with GET method 
+            resp=requests.get(url) 
+      
+            #http_respone 200 means OK status 
+            if resp.status_code==200: 
+                print("Successfully opened the web page") 
+      
+                # we need a parser,Python built-in HTML parser is enough . 
+                soup=BeautifulSoup(resp.text,'html.parser')     
+  
+                hor = soup.find_all('p') 
+                hors = str(hor[0].text)
+
+
+            else: 
+                print("Error")
+
+        elif  "géminis" in listahorosc:
+            tuhoroscopo = str(listahorosc[2])
+            horsemanal = "Horóscopo semanal para " + tuhoroscopo
+            # the target we want to open     
+            url='https://www.msn.com/es-mx/estilo-de-vida/horoscopos/g%C3%A9minis-hor%C3%B3scopo-diario-gratis/ar-AAyQM8E'
+      
+            #open with GET method 
+            resp=requests.get(url) 
+      
+            #http_respone 200 means OK status 
+            if resp.status_code==200: 
+                print("Successfully opened the web page") 
+      
+                # we need a parser,Python built-in HTML parser is enough . 
+                soup=BeautifulSoup(resp.text,'html.parser')     
+  
+                hor = soup.find_all('p') 
+                hors = str(hor[0].text)
+
+
+            else: 
+                print("Error")
+
+        elif  "Géminis" in listahorosc:
+            tuhoroscopo = str(listahorosc[2])
+            horsemanal = "Horóscopo semanal para " + tuhoroscopo
+            # the target we want to open     
+            url='https://www.msn.com/es-mx/estilo-de-vida/horoscopos/g%C3%A9minis-hor%C3%B3scopo-diario-gratis/ar-AAyQM8E'
+      
+            #open with GET method 
+            resp=requests.get(url) 
+      
+            #http_respone 200 means OK status 
+            if resp.status_code==200: 
+                print("Successfully opened the web page") 
+      
+                # we need a parser,Python built-in HTML parser is enough . 
+                soup=BeautifulSoup(resp.text,'html.parser')     
+  
+                hor = soup.find_all('p') 
+                hors = str(hor[0].text)
+
+
+            else: 
+                print("Error")
+
+        elif  "cancer" in listahorosc:
+            tuhoroscopo = str(listahorosc[2])
+            horsemanal = "Horóscopo semanal para " + tuhoroscopo
+            # the target we want to open     
+            url='https://www.msn.com/es-mx/estilo-de-vida/horoscopos/c%C3%A1ncer-hor%C3%B3scopo-diario-gratis/ar-AAyQvc6'
+      
+            #open with GET method 
+            resp=requests.get(url) 
+      
+            #http_respone 200 means OK status 
+            if resp.status_code==200: 
+                print("Successfully opened the web page") 
+      
+                # we need a parser,Python built-in HTML parser is enough . 
+                soup=BeautifulSoup(resp.text,'html.parser')     
+  
+                hor = soup.find_all('p') 
+                hors = str(hor[0].text)
+
+
+            else: 
+                print("Error")
+
+        elif  "Cancer" in listahorosc:
+            tuhoroscopo = str(listahorosc[2])
+            horsemanal = "Horóscopo semanal para " + tuhoroscopo
+            # the target we want to open     
+            url='https://www.msn.com/es-mx/estilo-de-vida/horoscopos/c%C3%A1ncer-hor%C3%B3scopo-diario-gratis/ar-AAyQvc6'
+      
+            #open with GET method 
+            resp=requests.get(url) 
+      
+            #http_respone 200 means OK status 
+            if resp.status_code==200: 
+                print("Successfully opened the web page") 
+      
+                # we need a parser,Python built-in HTML parser is enough . 
+                soup=BeautifulSoup(resp.text,'html.parser')     
+  
+                hor = soup.find_all('p') 
+                hors = str(hor[0].text)
+
+
+            else: 
+                print("Error")
+
+        elif  "cáncer" in listahorosc:
+            tuhoroscopo = str(listahorosc[2])
+            horsemanal = "Horóscopo semanal para " + tuhoroscopo
+            # the target we want to open     
+            url='https://www.msn.com/es-mx/estilo-de-vida/horoscopos/c%C3%A1ncer-hor%C3%B3scopo-diario-gratis/ar-AAyQvc6'
+      
+            #open with GET method 
+            resp=requests.get(url) 
+      
+            #http_respone 200 means OK status 
+            if resp.status_code==200: 
+                print("Successfully opened the web page") 
+      
+                # we need a parser,Python built-in HTML parser is enough . 
+                soup=BeautifulSoup(resp.text,'html.parser')     
+  
+                hor = soup.find_all('p') 
+                hors = str(hor[0].text)
+
+
+            else: 
+                print("Error")
+
+        elif  "Cáncer" in listahorosc:
+            tuhoroscopo = str(listahorosc[2])
+            horsemanal = "Horóscopo semanal para " + tuhoroscopo
+            # the target we want to open     
+            url='https://www.msn.com/es-mx/estilo-de-vida/horoscopos/c%C3%A1ncer-hor%C3%B3scopo-diario-gratis/ar-AAyQvc6'
+      
+            #open with GET method 
+            resp=requests.get(url) 
+      
+            #http_respone 200 means OK status 
+            if resp.status_code==200: 
+                print("Successfully opened the web page") 
+      
+                # we need a parser,Python built-in HTML parser is enough . 
+                soup=BeautifulSoup(resp.text,'html.parser')     
+  
+                hor = soup.find_all('p') 
+                hors = str(hor[0].text)
+
+
+            else: 
+                print("Error")
+
+        elif  "leo" in listahorosc:
+            tuhoroscopo = str(listahorosc[2])
+            horsemanal = "Horóscopo semanal para " + tuhoroscopo
+            # the target we want to open     
+            url='https://www.msn.com/es-mx/estilo-de-vida/horoscopos/leo-hor%C3%B3scopo-diario-gratis/ar-AAyQEMt'
+      
+            #open with GET method 
+            resp=requests.get(url) 
+      
+            #http_respone 200 means OK status 
+            if resp.status_code==200: 
+                print("Successfully opened the web page") 
+      
+                # we need a parser,Python built-in HTML parser is enough . 
+                soup=BeautifulSoup(resp.text,'html.parser')     
+  
+                hor = soup.find_all('p') 
+                hors = str(hor[0].text)
+
+
+            else: 
+                print("Error")
+
+        elif  "Leo" in listahorosc:
+            tuhoroscopo = str(listahorosc[2])
+            horsemanal = "Horóscopo semanal para " + tuhoroscopo
+            # the target we want to open     
+            url='https://www.msn.com/es-mx/estilo-de-vida/horoscopos/leo-hor%C3%B3scopo-diario-gratis/ar-AAyQEMt'
+      
+            #open with GET method 
+            resp=requests.get(url) 
+      
+            #http_respone 200 means OK status 
+            if resp.status_code==200: 
+                print("Successfully opened the web page") 
+      
+                # we need a parser,Python built-in HTML parser is enough . 
+                soup=BeautifulSoup(resp.text,'html.parser')     
+  
+                hor = soup.find_all('p') 
+                hors = str(hor[0].text)
+
+
+            else: 
+                print("Error")
+
+        elif  "virgo" in listahorosc:
+            tuhoroscopo = str(listahorosc[2])
+            horsemanal = "Horóscopo semanal para " + tuhoroscopo
+            # the target we want to open     
+            url='https://www.msn.com/es-mx/estilo-de-vida/horoscopos/virgo-hor%C3%B3scopo-diario-gratis/ar-AAyQEMw'
+      
+            #open with GET method 
+            resp=requests.get(url) 
+      
+            #http_respone 200 means OK status 
+            if resp.status_code==200: 
+                print("Successfully opened the web page") 
+      
+                # we need a parser,Python built-in HTML parser is enough . 
+                soup=BeautifulSoup(resp.text,'html.parser')     
+  
+                hor = soup.find_all('p') 
+                hors = str(hor[0].text)
+
+
+            else: 
+                print("Error")
+
+        elif  "Virgo" in listahorosc:
+            tuhoroscopo = str(listahorosc[2])
+            horsemanal = "Horóscopo semanal para " + tuhoroscopo
+            # the target we want to open     
+            url='https://www.msn.com/es-mx/estilo-de-vida/horoscopos/virgo-hor%C3%B3scopo-diario-gratis/ar-AAyQEMw'
+      
+            #open with GET method 
+            resp=requests.get(url) 
+      
+            #http_respone 200 means OK status 
+            if resp.status_code==200: 
+                print("Successfully opened the web page") 
+      
+                # we need a parser,Python built-in HTML parser is enough . 
+                soup=BeautifulSoup(resp.text,'html.parser')     
+  
+                hor = soup.find_all('p') 
+                hors = str(hor[0].text)
+
+
+            else: 
+                print("Error")
+
+        elif  "libra" in listahorosc:
+            tuhoroscopo = str(listahorosc[2])
+            horsemanal = "Horóscopo semanal para " + tuhoroscopo
+            # the target we want to open     
+            url='https://www.msn.com/es-mx/estilo-de-vida/horoscopos/libra-hor%C3%B3scopo-diario-gratis/ar-AAyQEMC'
+      
+            #open with GET method 
+            resp=requests.get(url) 
+      
+            #http_respone 200 means OK status 
+            if resp.status_code==200: 
+                print("Successfully opened the web page") 
+      
+                # we need a parser,Python built-in HTML parser is enough . 
+                soup=BeautifulSoup(resp.text,'html.parser')     
+  
+                hor = soup.find_all('p') 
+                hors = str(hor[0].text)
+
+
+            else: 
+                print("Error")
+
+        elif  "Libra" in listahorosc:
+            tuhoroscopo = str(listahorosc[2])
+            horsemanal = "Horóscopo semanal para " + tuhoroscopo
+            # the target we want to open     
+            url='https://www.msn.com/es-mx/estilo-de-vida/horoscopos/libra-hor%C3%B3scopo-diario-gratis/ar-AAyQEMC'
+      
+            #open with GET method 
+            resp=requests.get(url) 
+      
+            #http_respone 200 means OK status 
+            if resp.status_code==200: 
+                print("Successfully opened the web page") 
+      
+                # we need a parser,Python built-in HTML parser is enough . 
+                soup=BeautifulSoup(resp.text,'html.parser')     
+  
+                hor = soup.find_all('p') 
+                hors = str(hor[0].text)
+
+
+            else: 
+                print("Error")
+
+        elif  "escorpio" in listahorosc:
+            tuhoroscopo = str(listahorosc[2])
+            horsemanal = "Horóscopo semanal para " + tuhoroscopo
+            # the target we want to open     
+            url='https://www.msn.com/es-mx/estilo-de-vida/horoscopos/escorpio-hor%C3%B3scopo-diario-gratis/ar-AAyQJBT'
+      
+            #open with GET method 
+            resp=requests.get(url) 
+      
+            #http_respone 200 means OK status 
+            if resp.status_code==200: 
+                print("Successfully opened the web page") 
+      
+                # we need a parser,Python built-in HTML parser is enough . 
+                soup=BeautifulSoup(resp.text,'html.parser')     
+  
+                hor = soup.find_all('p') 
+                hors = str(hor[0].text)
+
+
+            else: 
+                print("Error")
+
+        elif  "Escorpio" in listahorosc:
+            tuhoroscopo = str(listahorosc[2])
+            horsemanal = "Horóscopo semanal para " + tuhoroscopo
+            # the target we want to open     
+            url='https://www.msn.com/es-mx/estilo-de-vida/horoscopos/escorpio-hor%C3%B3scopo-diario-gratis/ar-AAyQJBT'
+      
+            #open with GET method 
+            resp=requests.get(url) 
+      
+            #http_respone 200 means OK status 
+            if resp.status_code==200: 
+                print("Successfully opened the web page") 
+      
+                # we need a parser,Python built-in HTML parser is enough . 
+                soup=BeautifulSoup(resp.text,'html.parser')     
+  
+                hor = soup.find_all('p') 
+                hors = str(hor[0].text)
+
+
+            else: 
+                print("Error")
+
+        elif  "sagitario" in listahorosc:
+            tuhoroscopo = str(listahorosc[2])
+            horsemanal = "Horóscopo semanal para " + tuhoroscopo
+            # the target we want to open     
+            url='https://www.msn.com/es-mx/estilo-de-vida/horoscopos/sagitario-hor%C3%B3scopo-diario-gratis/ar-AAyQQQv'
+      
+            #open with GET method 
+            resp=requests.get(url) 
+      
+            #http_respone 200 means OK status 
+            if resp.status_code==200: 
+                print("Successfully opened the web page") 
+      
+                # we need a parser,Python built-in HTML parser is enough . 
+                soup=BeautifulSoup(resp.text,'html.parser')     
+  
+                hor = soup.find_all('p') 
+                hors = str(hor[0].text)
+
+
+            else: 
+                print("Error")
+
+        elif  "Sagitario" in listahorosc:
+            tuhoroscopo = str(listahorosc[2])
+            horsemanal = "Horóscopo semanal para " + tuhoroscopo
+            # the target we want to open     
+            url='https://www.msn.com/es-mx/estilo-de-vida/horoscopos/sagitario-hor%C3%B3scopo-diario-gratis/ar-AAyQQQv'
+      
+            #open with GET method 
+            resp=requests.get(url) 
+      
+            #http_respone 200 means OK status 
+            if resp.status_code==200: 
+                print("Successfully opened the web page") 
+      
+                # we need a parser,Python built-in HTML parser is enough . 
+                soup=BeautifulSoup(resp.text,'html.parser')     
+  
+                hor = soup.find_all('p') 
+                hors = str(hor[0].text)
+
+
+            else: 
+                print("Error")
+
+        elif  "capricornio" in listahorosc:
+            tuhoroscopo = str(listahorosc[2])
+            horsemanal = "Horóscopo semanal para " + tuhoroscopo
+            # the target we want to open     
+            url='https://www.msn.com/es-mx/estilo-de-vida/horoscopos/capricornio-hor%C3%B3scopo-diario-gratis/ar-AAyQHkM'
+      
+            #open with GET method 
+            resp=requests.get(url) 
+      
+            #http_respone 200 means OK status 
+            if resp.status_code==200: 
+                print("Successfully opened the web page") 
+      
+                # we need a parser,Python built-in HTML parser is enough . 
+                soup=BeautifulSoup(resp.text,'html.parser')     
+  
+                hor = soup.find_all('p') 
+                hors = str(hor[0].text)
+
+
+            else: 
+                print("Error")
+
+        elif  "Capricornio" in listahorosc:
+            tuhoroscopo = str(listahorosc[2])
+            horsemanal = "Horóscopo semanal para " + tuhoroscopo
+            # the target we want to open     
+            url='https://www.msn.com/es-mx/estilo-de-vida/horoscopos/capricornio-hor%C3%B3scopo-diario-gratis/ar-AAyQHkM'
+      
+            #open with GET method 
+            resp=requests.get(url) 
+      
+            #http_respone 200 means OK status 
+            if resp.status_code==200: 
+                print("Successfully opened the web page") 
+      
+                # we need a parser,Python built-in HTML parser is enough . 
+                soup=BeautifulSoup(resp.text,'html.parser')     
+  
+                hor = soup.find_all('p') 
+                hors = str(hor[0].text)
+
+
+            else: 
+                print("Error")
+
+        elif  "acuario" in listahorosc:
+            tuhoroscopo = str(listahorosc[2])
+            horsemanal = "Horóscopo semanal para " + tuhoroscopo
+            # the target we want to open     
+            url='https://www.msn.com/es-mx/estilo-de-vida/horoscopos/acuario-hor%C3%B3scopo-diario-gratis/ar-AAyQwZ9'
+      
+            #open with GET method 
+            resp=requests.get(url) 
+      
+            #http_respone 200 means OK status 
+            if resp.status_code==200: 
+                print("Successfully opened the web page") 
+      
+                # we need a parser,Python built-in HTML parser is enough . 
+                soup=BeautifulSoup(resp.text,'html.parser')     
+  
+                hor = soup.find_all('p') 
+                hors = str(hor[0].text)
+
+
+            else: 
+                print("Error")
+
+        elif  "Acuario" in listahorosc:
+            tuhoroscopo = str(listahorosc[2])
+            horsemanal = "Horóscopo semanal para " + tuhoroscopo
+            # the target we want to open     
+            url='https://www.msn.com/es-mx/estilo-de-vida/horoscopos/acuario-hor%C3%B3scopo-diario-gratis/ar-AAyQwZ9'
+      
+            #open with GET method 
+            resp=requests.get(url) 
+      
+            #http_respone 200 means OK status 
+            if resp.status_code==200: 
+                print("Successfully opened the web page") 
+      
+                # we need a parser,Python built-in HTML parser is enough . 
+                soup=BeautifulSoup(resp.text,'html.parser')     
+  
+                hor = soup.find_all('p') 
+                hors = str(hor[0].text)
+
+
+            else: 
+                print("Error")
+
+        elif  "piscis" in listahorosc:
+            tuhoroscopo = str(listahorosc[2])
+            horsemanal = "Horóscopo semanal para " + tuhoroscopo
+            # the target we want to open     
+            url='https://www.msn.com/es-mx/estilo-de-vida/horoscopos/piscis-hor%C3%B3scopo-diario-gratis/ar-AAyQvcC'
+      
+            #open with GET method 
+            resp=requests.get(url) 
+      
+            #http_respone 200 means OK status 
+            if resp.status_code==200: 
+                print("Successfully opened the web page") 
+      
+                # we need a parser,Python built-in HTML parser is enough . 
+                soup=BeautifulSoup(resp.text,'html.parser')     
+  
+                hor = soup.find_all('p') 
+                hors = str(hor[0].text)
+
+
+            else: 
+                print("Error")
+
+        elif  "piscis" in listahorosc:
+            tuhoroscopo = str(listahorosc[2])
+            horsemanal = "Horóscopo semanal para " + tuhoroscopo
+            # the target we want to open     
+            url='https://www.msn.com/es-mx/estilo-de-vida/horoscopos/piscis-hor%C3%B3scopo-diario-gratis/ar-AAyQvcC'
+      
+            #open with GET method 
+            resp=requests.get(url) 
+      
+            #http_respone 200 means OK status 
+            if resp.status_code==200: 
+                print("Successfully opened the web page") 
+      
+                # we need a parser,Python built-in HTML parser is enough . 
+                soup=BeautifulSoup(resp.text,'html.parser')     
+  
+                hor = soup.find_all('p') 
+                hors = str(hor[0].text)
+
+
+            else: 
+                print("Error")
+    
+        else:
+            await message.delete()
+            await message.channel.send("Hmm... Creo que lo escribiste mal, revisa por favor :3.")
+
+        embed = discord.Embed(
+
+            title=horsemanal,
+            description=hors,
+            color=discord.Colour.magenta()
+              
+        )          
+        piehor = "Más información en: " + url
+        embed.set_footer(text="Comando secreto 3/4.")
+        await message.author.send(embed=embed)
+        await message.author.send(piehor)
+        await message.delete()
+        await message.channel.send("Revisa tu chat privado uwu. Comando secreto 3/4.")
+
+    
+    except:
+        await message.delete()
+        await message.channel.send("Escribiste mal el comando, a ver si descubres la forma correcta XD.")
+
+async def auto1(message):
+    handler = open('auto1.txt')
+    autobio1 = handler.read()
+    embed = discord.Embed(
+
+        title="Biografía de ThelVadam",
+        description=autobio1,
+        color=discord.Colour.random()
+
+    )
+    #message_channel = client.get_channel(803850947734011925)
+    await message.channel.send(embed = embed)
+  
+async def sobremi(message):
+
+    await message.channel.send("Revisa tu chat privado :3. Comando secreto 4/4.")
+    handler = open('sobrethel.txt')
+    sobrethel = handler.read()
+    embed = discord.Embed(
+
+        title="Sobre ThelVadam",
+        description=sobrethel,
+        color=discord.Colour.random()
+
+    )
+    #message_channel = client.get_channel(803850947734011925)
+    await message.author.send(embed = embed)
+    await message.delete()
 
 client.run(os.getenv('TOKEN'))
