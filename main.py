@@ -1,4 +1,4 @@
-#ThelVadam, bot para Discord hecho por Memo Flores, versión Beta v0.6.0
+#ThelVadam, bot para Discord hecho por Memo Flores, versión Beta v0.7.0
 
 """ This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -326,8 +326,24 @@ async def on_message(message):
         await scorpion(message)
     elif message.content.startswith("!tv sniper"):
         await sniper(message)
+    elif message.content.startswith("!tv snipe"):
+        await sniper(message)
     elif message.content.startswith("!tv teabag"):
         await teabag(message)
+    elif message.content.startswith("!tv banshee"):
+        await banshee(message)
+    elif message.content.startswith("!tv nade"):
+        await granada(message)
+    elif message.content.startswith("!tv 8ball"):
+        await ball(message)
+    elif message.content.startswith("!tv bola8"):
+        await ball(message)
+    elif message.content.startswith("!tv bolaocho"):
+        await ball(message)
+    elif message.content.startswith("!tv espada"):
+        await espada(message)
+    elif message.content.startswith("!tv sword"):
+        await espada(message)
 
 async def timehora(message):
 
@@ -390,7 +406,7 @@ async def desicionpendejo(message):
         listapendejo = list(pendejo1.split(" "))
         pendejo2 = listapendejo[3]
         print("Es pendejo " + pendejo2 +" XD")
-        file = copen("deisicionpen.txt")
+        file = copen("pendejo.txt")
         lines = file.count('\n')
         random_line = file.getline(randint(1, lines))
         linea = random_line
@@ -522,7 +538,7 @@ async def diversity(message):
     linea = random_line
     print(linea)
     embed.set_image(url=linea)
-    embed.set_footer(text="Comando secreto 1/4")
+    embed.set_footer(text="Comando secreto 1/5")
     await message.channel.send(nombre2)
     await message.channel.send(embed=embed)
 
@@ -1186,11 +1202,11 @@ async def horoscopo(message):
               
         )          
         piehor = "Más información en: " + url
-        embed.set_footer(text="Comando secreto 3/4.")
+        embed.set_footer(text="Comando secreto 3/5.")
         await message.author.send(embed=embed)
         await message.author.send(piehor)
         await message.delete()
-        await message.channel.send("Revisa tu chat privado uwu. Comando secreto 3/4.")
+        await message.channel.send("Revisa tu chat privado uwu. Comando secreto 3/5.")
 
     
     except:
@@ -1212,7 +1228,7 @@ async def auto1(message):
   
 async def sobremi(message):
 
-    await message.channel.send("Revisa tu chat privado :3. Comando secreto 4/4.")
+    await message.channel.send("Revisa tu chat privado :3. Comando secreto 4/5.")
     handler = open('sobrethel.txt')
     sobrethel = handler.read()
     embed = discord.Embed(
@@ -1333,7 +1349,7 @@ async def sniper(message):
         elif listasniper[2] == "<@!806203127451615252>":
             await message.channel.send('Ejem... Mejor no lo haga compa, si no quiere una bala en su cola ni lo intente...')
         else:
-            await message.channel.send('<@' + nombre1 + '> ha snipeado ' + listasniper[2] + '! Bien pro.')
+            await message.channel.send('<@' + nombre1 + '> ha snipeado a ' + listasniper[2] + '! Bien pro.')
             await gifsniper(message)
     except:
         await message.channel.send('No seas burro. Tienes que mencionar a alguien ._.')
@@ -1379,6 +1395,131 @@ async def gifteabag(message):
     )
     linea = ""
     file = copen("teaimagen.txt")
+    lines = file.count('\n')
+    random_line = file.getline(randint(1, lines))
+    linea = random_line
+    print(linea)
+    embed.set_image(url=linea)
+    await message.channel.send(embed=embed)
+
+async def banshee(message):
+    try:
+        bans1 = message.content
+        listabans = list(bans1.split(" "))
+        nombre1 = str(message.author.id)
+        nombre2 = "<@!" + nombre1 + ">"
+        if listabans[2] == nombre2:
+            await message.channel.send('A veces eres raro, no entiendo cómo te vas a matar a tí mismo con un banshee xd._.')
+        elif listabans[2] == "<@!806203127451615252>":
+            await message.channel.send('Vente para acá hijo de tu pm vas a ver quien se muere...')
+        else:
+            await message.channel.send('<@' + nombre1 + '> ha matado a ' + listabans[2] + ' con un Banshee!')
+            await gifbans(message)
+    except:
+        await message.channel.send('No seas burro. Tienes que mencionar a alguien ._.')
+
+async def gifbans(message):
+    embed = discord.Embed(
+
+        title="ThelVadam",
+        color=discord.Colour.random()
+
+    )
+    linea = ""
+    file = copen("bansimagen.txt")
+    lines = file.count('\n')
+    random_line = file.getline(randint(1, lines))
+    linea = random_line
+    print(linea)
+    embed.set_image(url=linea)
+    await message.channel.send(embed=embed)
+
+async def granada(message):
+    try:
+        grans1 = message.content
+        listagrans = list(grans1.split(" "))
+        nombre1 = str(message.author.id)
+        nombre2 = "<@!" + nombre1 + ">"
+        await message.delete()
+        if listagrans[2] == nombre2:
+            await message.channel.send('Yo no lo haría si fuera tú... Comando secreto 5/5')
+        elif listagrans[2] == "<@!806203127451615252>":
+            await message.channel.send('Primero aprende a jugar XD. Comando secreto 5/5')
+        else:
+            await message.channel.send('<@' + nombre1 + '> ha matado a ' + listagrans[2] + ' con granadas!')
+            await gifgrans(message)
+    except:
+        await message.channel.send('No seas burro. Tienes que mencionar a alguien ._. Comando secreto 5/5')
+
+async def gifgrans(message):
+    embed = discord.Embed(
+
+        title="ThelVadam",
+        color=discord.Colour.random()
+
+    )
+    linea = ""
+    file = copen("gransimagen.txt")
+    lines = file.count('\n')
+    random_line = file.getline(randint(1, lines))
+    linea = random_line
+    print(linea)
+    embed.set_image(url=linea)
+    embed.set_footer(text="Comando secreto 5/5")
+    await message.channel.send(embed=embed)
+
+async def ball(message):
+    try:
+        nombre1 = str(message.author.id)
+        nombre2 = "<@!" + nombre1 + ">"
+        msg = message.content
+        mensaje1 = list(msg.split(" "))
+        mensaje1.remove("!tv")
+        mensaje1.remove("8ball")
+        mensaje2 = ' '.join([str(item) for item in mensaje1 ])
+        linea = ""
+        file = copen("bolaocho.txt")
+        lines = file.count('\n')
+        random_line = file.getline(randint(1, lines))
+        linea = random_line
+
+        embed = discord.Embed(
+
+            title="ThelVadam 8ball",
+            color=discord.Colour.random()
+
+        )
+        embed.add_field(name=f"{message.author.name} pregunta:", value=mensaje2, inline=False)
+        embed.add_field(name="Respuesta de Thel 'Vadam:", value=linea, inline=False)
+        await message.channel.send(embed=embed)
+    except:
+        await message.channel.send("We, pero escribe algo._.")    
+
+async def espada(message):
+    try:
+        sword1 = message.content
+        listasword = list(sword1.split(" "))
+        nombre1 = str(message.author.id)
+        nombre2 = "<@!" + nombre1 + ">"
+        if listasword[2] == nombre2:
+            await message.channel.send('¿Te auto espadearás? O.o')
+        elif listasword[2] == "<@!806203127451615252>":
+            await message.channel.send('Ejem... Soy experto en espadas, si no quieres que te rebane como sushi ni te me acerques...')
+        else:
+            await message.channel.send('<@' + nombre1 + '> ha espadeado a ' + listasword[2] + '!')
+            await gifsword(message)
+    except:
+        await message.channel.send('No seas burro. Tienes que mencionar a alguien ._.')
+
+async def gifsword(message):
+    embed = discord.Embed(
+
+        title="ThelVadam",
+        color=discord.Colour.random()
+
+    )
+    linea = ""
+    file = copen("swordimagen.txt")
     lines = file.count('\n')
     random_line = file.getline(randint(1, lines))
     linea = random_line
