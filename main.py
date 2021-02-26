@@ -1,4 +1,4 @@
-#ThelVadam, bot para Discord hecho por Memo Flores, versión Beta v0.7.0
+#ThelVadam, bot para Discord hecho por Memo Flores, v1.0
 
 """ This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -35,16 +35,13 @@ client = discord.Client()
 async def on_ready():
     intentos = 1
     atte = str(intentos)
-    try:
-        print('We hebben ingelogd als {0.user} na '.format(client) + atte + ' poging(en)')
-        #message_channel = client.get_channel(805855767206166599)
-        #await message_channel.send("¡Hola! :3.")
-        await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="a quién ayudar :3"))
-        print("Status 3 geselecteerd")
-        print("Este software se encuentra licenciado bajo la GNU GPL v3")
-    except:
-        intentos = intentos + 1
-        client.run('ODA2MjAzMTI3NDUxNjE1MjUy.YBmBLA.oGty49z0tDr92ENq_tQdyqNxpCk')
+    print('We hebben ingelogd als {0.user} na '.format(client) + atte + ' poging(en)')
+    #message_channel = client.get_channel(805855767206166599)
+    #await message_channel.send("¡Hola! :3.")
+    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="a quién ayudar :3"))
+    print("Status 3 geselecteerd")
+    print("Este software se encuentra licenciado bajo la GNU GPL v3")
+
             
 @client.event
 async def on_message(message): 
@@ -117,10 +114,10 @@ async def on_message(message):
             return
         else:
             await message.channel.send(' Puta tú,  <@' + nombre1 + '>. Tantito respeto por el servidor carnal ;).')
-    if message.content.startswith('hola'):
+    """if message.content.startswith('hola'):
         nombre1 = str(message.author.id)
         await message.channel.send(' ¡Hola,  <@' + nombre1 + '>! ¿Qué tal te va?')
-    if message.content.startswith('Hola Bien Y Tu? :D'):
+    elif message.content.startswith('Hola Bien Y Tu? :D'):
         await message.channel.send('Bien, bien :3 Me alegro que estés bien, saluda al Jefe Maestro de mi parte :).')
     elif message.content.startswith('Hola'):
         nombre1 = str(message.author.id)
@@ -163,8 +160,8 @@ async def on_message(message):
         await message.channel.send('¡Buen día, <@' + nombre1 + '>!')
     elif message.content.startswith('Buen día'):
         nombre1 = str(message.author.id)
-        await message.channel.send('¡Buen día, <@' + nombre1 + '>! No olvides cuidarte de la infección del flood :3')
-    elif message.content.startswith('que hora es'):
+        await message.channel.send('¡Buen día, <@' + nombre1 + '>! No olvides cuidarte de la infección del flood :3')"""
+    if message.content.startswith('que hora es'):
         await timehora(message)
     elif message.content.startswith('qué hora es'):
         await timehora(message)
@@ -188,6 +185,8 @@ async def on_message(message):
         await ayuda(message)
     elif message.content.startswith('!tv es pendejo'):
         await desicionpendejo(message)
+    elif message.content.startswith('!tv es pendeja'):
+        await desicionpendejo(message)
     elif message.content.startswith('!tv status1'):
             nombre1 = str(message.author.id)
             nombre2 = "<@!" + nombre1 + ">"
@@ -206,6 +205,31 @@ async def on_message(message):
                 await message.channel.send('Lo siento, no tienes permiso para ejecutar este comando ^_^')
 
     elif message.content.startswith('!tv status3'):
+            nombre1 = str(message.author.id)
+            nombre2 = "<@!" + nombre1 + ">"
+            if nombre2 == "<@!721920162005123142>":
+                await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="a quién ayudar :3"))
+                await message.channel.send('Estado #3 establecido')
+            else:
+                await message.channel.send('Lo siento, no tienes permiso para ejecutar este comando ^_^')
+    elif message.content.startswith('!tv status 1'):
+            nombre1 = str(message.author.id)
+            nombre2 = "<@!" + nombre1 + ">"
+            if nombre2 == "<@!721920162005123142>":
+                await client.change_presence(activity=discord.Game(name="!tv ayuda"))
+                await message.channel.send('Estado #1 establecido')
+            else:
+                await message.channel.send('Lo siento, no tienes permiso para ejecutar este comando ^_^')
+    elif message.content.startswith('!tv status 2'):
+            nombre1 = str(message.author.id)
+            nombre2 = "<@!" + nombre1 + ">"
+            if nombre2 == "<@!721920162005123142>":
+                await client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="ayuda"))
+                await message.channel.send('Estado #2 establecido')
+            else:
+                await message.channel.send('Lo siento, no tienes permiso para ejecutar este comando ^_^')
+
+    elif message.content.startswith('!tv status 3'):
             nombre1 = str(message.author.id)
             nombre2 = "<@!" + nombre1 + ">"
             if nombre2 == "<@!721920162005123142>":
@@ -294,6 +318,9 @@ async def on_message(message):
     elif message.content.startswith("!tv diversity"):
         await message.delete()
         await diversity(message)
+    elif message.content.startswith("!tv diversidad"):
+        await message.delete()
+        await diversity(message)
     elif message.content.startswith("!tv lgbt"):
         await message.delete()
         await diversity(message)
@@ -318,11 +345,21 @@ async def on_message(message):
         await sobremi(message)
     elif message.content.startswith("!tv warthog"):
         await espachurrar(message)
+    elif message.content.startswith("!tv ghost"):
+        await espachurrar(message)
+    elif message.content.startswith("!tv run"):
+        await espachurrar(message)
+    elif message.content.startswith("!tv espachurrar"):
+        await espachurrar(message)
     elif message.content.startswith("!tv kill"):
         await matar(message)
     elif message.content.startswith("!tv matar"):
         await matar(message)
     elif message.content.startswith("!tv scorpion"):
+        await scorpion(message)
+    elif message.content.startswith("!tv tank"):
+        await scorpion(message)
+    elif message.content.startswith("!tv tanque"):
         await scorpion(message)
     elif message.content.startswith("!tv sniper"):
         await sniper(message)
@@ -337,13 +374,78 @@ async def on_message(message):
     elif message.content.startswith("!tv 8ball"):
         await ball(message)
     elif message.content.startswith("!tv bola8"):
-        await ball(message)
+        await bola8(message)
     elif message.content.startswith("!tv bolaocho"):
-        await ball(message)
+        await bolaocho(message)
+    elif message.content.startswith("!tv bolanegra"):
+        await bolanegra(message)
+    elif message.content.startswith("!tv pregúnta"):
+        await question(message)
+    elif message.content.startswith("!tv pregunta"):
+        await pregunta(message)
+    elif message.content.startswith("!tv question"):
+        await question2(message)
     elif message.content.startswith("!tv espada"):
         await espada(message)
     elif message.content.startswith("!tv sword"):
         await espada(message)
+    elif message.content.startswith("!tv escopada"):
+        await espada(message)
+    elif message.content.startswith("!tv 8 ball"):
+        await message.channel.send("Mira we, si no quieres que explote como lo hizo 343 Guilty Spark, pon 8ball, no 8 ball.")
+    elif message.content.startswith("!tv encuesta"):
+        await encuesta(message)
+    elif message.content.startswith("!tv poll"):
+        await poll(message)
+    elif message.content.startswith("!tv update"):
+        nombre1 = str(message.author.id)
+        nombre2 = "<@!" + nombre1 + ">"
+        if nombre2 == "<@!721920162005123142>":
+            await update(message)
+        else:
+            await message.channel.send('Lo siento, no tienes permiso para ejecutar este comando ^_^')
+    elif message.content.startswith("!tv avatar"):
+        await avatar(message)
+    elif message.content.startswith("!tv foto"):
+        await avatar(message)
+    elif message.content.startswith("!tv confesion"):
+        await confesion(message)
+    elif message.content.startswith("!tv confession"):
+        await confession(message)
+    elif message.content.startswith("!tv confesión"):
+        await confesionn(message)
+    elif message.content.startswith("!tv equipo"):
+        await equipo(message)
+    elif message.content.startswith("!tv team"):
+        await equipo(message)
+    elif message.content.startswith("!tv peek"):
+        await espiar(message)
+    elif message.content.startswith("!tv espiar"):
+        await espiar(message)
+    elif message.content.startswith("!tv apuntar"):
+        await espiar(message)
+    elif message.content.startswith("!tv wraith"):
+        await wraith(message)
+    elif message.content.startswith("!tv warith"):
+        await wraith(message)
+    elif message.content.startswith("!tv wairth"):
+        await wraith(message)
+    elif message.content.startswith("!tv wrait"):
+        await wraith(message)
+    elif message.content.startswith("!tv wraih"):
+        await wraith(message)
+    elif message.content.startswith("!tv scorpion covenant"):
+        await wraith(message)
+    elif message.content.startswith("!tv covenant scorpion"):
+        await wraith(message)
+    elif message.content.startswith("!tv covenant tank"):
+        await wraith(message)
+    elif message.content.startswith("!tv tanque covenant"):
+        await wraith(message)
+    elif message.content.startswith("!tv covenant tanq"):
+        await wraith(message)
+    elif message.content.startswith("!tv scarab"):
+        await message.channel.send("Ya quisieras poder manejar un scarab XD.")
 
 async def timehora(message):
 
@@ -384,7 +486,7 @@ async def desicionamor(message):
             desicion = random.choice(desicionlista)
         elif desicion == "9":
             nombre1 = str(message.author.id)
-            await message.channel.send('Yo les pago la boda pts. <@' + nombre1 + '>' + ' + ' + listaamor[2])
+            await message.channel.send('Yo les pago la boda pts. <@' + nombre1 + '>' + ' + ' + listaamor[3])
             desicion = random.choice(desicionlista)
         elif desicion == "10":
             await message.channel.send('Ps... creo que ' + listaamor[3] + 'sí te ama, pero mejor pregúntale.')
@@ -424,6 +526,7 @@ async def ayuda(message):
 
     )
     #message_channel = client.get_channel(803850947734011925)
+    embed.set_footer(text="v1.0")
     await message.author.send(embed = embed)
     await message.channel.send("Revisa tu chat privado ^_^")
 
@@ -433,12 +536,17 @@ async def besar(message):
         listabesar = list(besar1.split(" "))
         nombre1 = str(message.author.id)
         nombre2 = "<@!" + nombre1 + ">"
+        nombre3 = "<@" + nombre1 + ">"
         if listabesar[2] == nombre2:
             await message.channel.send('¿Te besarás a tí mismo? O.o')
-        elif listabesar[2] == "<@!806203127451615252>":
+        elif listabesar[2] == nombre3:
+            await message.channel.send('¿Te besarás a tí mismo? O.o')
+        elif listabesar[2] == "<@!813874482182619166>":
+            await message.channel.send('Ejem... Aquí no, hay niños o///o')
+        elif listabesar[2] == "<@813874482182619166>":
             await message.channel.send('Ejem... Aquí no, hay niños o///o')
         else:
-            await message.channel.send('<@' + nombre1 + '> ha besado a ' + listabesar[2] + '! <3')
+            await message.channel.send('<@' + nombre1 + '> ha besado a ' + listabesar[2] + '! :revolving_hearts:')
             await gifbeso(message)
     except:
         await message.channel.send('No seas burro. Tienes que mencionar a alguien ._.')
@@ -548,7 +656,7 @@ async def horoscopo(message):
         listahorosc = list(horosc.split(" "))
         if  "aries" in listahorosc:
             tuhoroscopo = str(listahorosc[2])
-            horsemanal = "Horóscopo semanal para " + tuhoroscopo
+            horsemanal = "Horóscopo diario para " + tuhoroscopo
             # the target we want to open     
             url='https://www.msn.com/es-mx/estilo-de-vida/horoscopos/aries-hor%C3%B3scopo-diario-gratis/ar-AAyQCeq/'
       
@@ -571,7 +679,7 @@ async def horoscopo(message):
 
         elif  "Aries" in listahorosc:
             tuhoroscopo = str(listahorosc[2])
-            horsemanal = "Horóscopo semanal para " + tuhoroscopo
+            horsemanal = "Horóscopo diario para " + tuhoroscopo
             # the target we want to open     
             url='https://www.msn.com/es-mx/estilo-de-vida/horoscopos/aries-hor%C3%B3scopo-diario-gratis/ar-AAyQCeq/'
       
@@ -594,7 +702,7 @@ async def horoscopo(message):
 
         elif  "tauro" in listahorosc:
             tuhoroscopo = str(listahorosc[2])
-            horsemanal = "Horóscopo semanal para " + tuhoroscopo
+            horsemanal = "Horóscopo diario para " + tuhoroscopo
             # the target we want to open     
             url='https://www.msn.com/es-mx/estilo-de-vida/horoscopos/tauro-hor%C3%B3scopo-diario-gratis/ar-AAyQHkq'
       
@@ -617,7 +725,7 @@ async def horoscopo(message):
 
         elif  "Tauro" in listahorosc:
             tuhoroscopo = str(listahorosc[2])
-            horsemanal = "Horóscopo semanal para " + tuhoroscopo
+            horsemanal = "Horóscopo diario para " + tuhoroscopo
             # the target we want to open     
             url='https://www.msn.com/es-mx/estilo-de-vida/horoscopos/tauro-hor%C3%B3scopo-diario-gratis/ar-AAyQHkq'
       
@@ -640,7 +748,7 @@ async def horoscopo(message):
 
         elif  "geminis" in listahorosc:
             tuhoroscopo = str(listahorosc[2])
-            horsemanal = "Horóscopo semanal para " + tuhoroscopo
+            horsemanal = "Horóscopo diario para " + tuhoroscopo
             # the target we want to open     
             url='https://www.msn.com/es-mx/estilo-de-vida/horoscopos/g%C3%A9minis-hor%C3%B3scopo-diario-gratis/ar-AAyQM8E'
       
@@ -663,7 +771,7 @@ async def horoscopo(message):
 
         elif  "Geminis" in listahorosc:
             tuhoroscopo = str(listahorosc[2])
-            horsemanal = "Horóscopo semanal para " + tuhoroscopo
+            horsemanal = "Horóscopo diario para " + tuhoroscopo
             # the target we want to open     
             url='https://www.msn.com/es-mx/estilo-de-vida/horoscopos/g%C3%A9minis-hor%C3%B3scopo-diario-gratis/ar-AAyQM8E'
       
@@ -686,7 +794,7 @@ async def horoscopo(message):
 
         elif  "géminis" in listahorosc:
             tuhoroscopo = str(listahorosc[2])
-            horsemanal = "Horóscopo semanal para " + tuhoroscopo
+            horsemanal = "Horóscopo diario para " + tuhoroscopo
             # the target we want to open     
             url='https://www.msn.com/es-mx/estilo-de-vida/horoscopos/g%C3%A9minis-hor%C3%B3scopo-diario-gratis/ar-AAyQM8E'
       
@@ -709,7 +817,7 @@ async def horoscopo(message):
 
         elif  "Géminis" in listahorosc:
             tuhoroscopo = str(listahorosc[2])
-            horsemanal = "Horóscopo semanal para " + tuhoroscopo
+            horsemanal = "Horóscopo diario para " + tuhoroscopo
             # the target we want to open     
             url='https://www.msn.com/es-mx/estilo-de-vida/horoscopos/g%C3%A9minis-hor%C3%B3scopo-diario-gratis/ar-AAyQM8E'
       
@@ -732,7 +840,7 @@ async def horoscopo(message):
 
         elif  "cancer" in listahorosc:
             tuhoroscopo = str(listahorosc[2])
-            horsemanal = "Horóscopo semanal para " + tuhoroscopo
+            horsemanal = "Horóscopo diario para " + tuhoroscopo
             # the target we want to open     
             url='https://www.msn.com/es-mx/estilo-de-vida/horoscopos/c%C3%A1ncer-hor%C3%B3scopo-diario-gratis/ar-AAyQvc6'
       
@@ -755,7 +863,7 @@ async def horoscopo(message):
 
         elif  "Cancer" in listahorosc:
             tuhoroscopo = str(listahorosc[2])
-            horsemanal = "Horóscopo semanal para " + tuhoroscopo
+            horsemanal = "Horóscopo diario para " + tuhoroscopo
             # the target we want to open     
             url='https://www.msn.com/es-mx/estilo-de-vida/horoscopos/c%C3%A1ncer-hor%C3%B3scopo-diario-gratis/ar-AAyQvc6'
       
@@ -778,7 +886,7 @@ async def horoscopo(message):
 
         elif  "cáncer" in listahorosc:
             tuhoroscopo = str(listahorosc[2])
-            horsemanal = "Horóscopo semanal para " + tuhoroscopo
+            horsemanal = "Horóscopo diario para " + tuhoroscopo
             # the target we want to open     
             url='https://www.msn.com/es-mx/estilo-de-vida/horoscopos/c%C3%A1ncer-hor%C3%B3scopo-diario-gratis/ar-AAyQvc6'
       
@@ -801,7 +909,7 @@ async def horoscopo(message):
 
         elif  "Cáncer" in listahorosc:
             tuhoroscopo = str(listahorosc[2])
-            horsemanal = "Horóscopo semanal para " + tuhoroscopo
+            horsemanal = "Horóscopo diario para " + tuhoroscopo
             # the target we want to open     
             url='https://www.msn.com/es-mx/estilo-de-vida/horoscopos/c%C3%A1ncer-hor%C3%B3scopo-diario-gratis/ar-AAyQvc6'
       
@@ -824,7 +932,7 @@ async def horoscopo(message):
 
         elif  "leo" in listahorosc:
             tuhoroscopo = str(listahorosc[2])
-            horsemanal = "Horóscopo semanal para " + tuhoroscopo
+            horsemanal = "Horóscopo diario para " + tuhoroscopo
             # the target we want to open     
             url='https://www.msn.com/es-mx/estilo-de-vida/horoscopos/leo-hor%C3%B3scopo-diario-gratis/ar-AAyQEMt'
       
@@ -847,7 +955,7 @@ async def horoscopo(message):
 
         elif  "Leo" in listahorosc:
             tuhoroscopo = str(listahorosc[2])
-            horsemanal = "Horóscopo semanal para " + tuhoroscopo
+            horsemanal = "Horóscopo diario para " + tuhoroscopo
             # the target we want to open     
             url='https://www.msn.com/es-mx/estilo-de-vida/horoscopos/leo-hor%C3%B3scopo-diario-gratis/ar-AAyQEMt'
       
@@ -870,7 +978,7 @@ async def horoscopo(message):
 
         elif  "virgo" in listahorosc:
             tuhoroscopo = str(listahorosc[2])
-            horsemanal = "Horóscopo semanal para " + tuhoroscopo
+            horsemanal = "Horóscopo diario para " + tuhoroscopo
             # the target we want to open     
             url='https://www.msn.com/es-mx/estilo-de-vida/horoscopos/virgo-hor%C3%B3scopo-diario-gratis/ar-AAyQEMw'
       
@@ -893,7 +1001,7 @@ async def horoscopo(message):
 
         elif  "Virgo" in listahorosc:
             tuhoroscopo = str(listahorosc[2])
-            horsemanal = "Horóscopo semanal para " + tuhoroscopo
+            horsemanal = "Horóscopo diario para " + tuhoroscopo
             # the target we want to open     
             url='https://www.msn.com/es-mx/estilo-de-vida/horoscopos/virgo-hor%C3%B3scopo-diario-gratis/ar-AAyQEMw'
       
@@ -916,7 +1024,7 @@ async def horoscopo(message):
 
         elif  "libra" in listahorosc:
             tuhoroscopo = str(listahorosc[2])
-            horsemanal = "Horóscopo semanal para " + tuhoroscopo
+            horsemanal = "Horóscopo diario para " + tuhoroscopo
             # the target we want to open     
             url='https://www.msn.com/es-mx/estilo-de-vida/horoscopos/libra-hor%C3%B3scopo-diario-gratis/ar-AAyQEMC'
       
@@ -939,7 +1047,7 @@ async def horoscopo(message):
 
         elif  "Libra" in listahorosc:
             tuhoroscopo = str(listahorosc[2])
-            horsemanal = "Horóscopo semanal para " + tuhoroscopo
+            horsemanal = "Horóscopo diario para " + tuhoroscopo
             # the target we want to open     
             url='https://www.msn.com/es-mx/estilo-de-vida/horoscopos/libra-hor%C3%B3scopo-diario-gratis/ar-AAyQEMC'
       
@@ -962,7 +1070,7 @@ async def horoscopo(message):
 
         elif  "escorpio" in listahorosc:
             tuhoroscopo = str(listahorosc[2])
-            horsemanal = "Horóscopo semanal para " + tuhoroscopo
+            horsemanal = "Horóscopo diario para " + tuhoroscopo
             # the target we want to open     
             url='https://www.msn.com/es-mx/estilo-de-vida/horoscopos/escorpio-hor%C3%B3scopo-diario-gratis/ar-AAyQJBT'
       
@@ -985,7 +1093,7 @@ async def horoscopo(message):
 
         elif  "Escorpio" in listahorosc:
             tuhoroscopo = str(listahorosc[2])
-            horsemanal = "Horóscopo semanal para " + tuhoroscopo
+            horsemanal = "Horóscopo diario para " + tuhoroscopo
             # the target we want to open     
             url='https://www.msn.com/es-mx/estilo-de-vida/horoscopos/escorpio-hor%C3%B3scopo-diario-gratis/ar-AAyQJBT'
       
@@ -1008,7 +1116,7 @@ async def horoscopo(message):
 
         elif  "sagitario" in listahorosc:
             tuhoroscopo = str(listahorosc[2])
-            horsemanal = "Horóscopo semanal para " + tuhoroscopo
+            horsemanal = "Horóscopo diario para " + tuhoroscopo
             # the target we want to open     
             url='https://www.msn.com/es-mx/estilo-de-vida/horoscopos/sagitario-hor%C3%B3scopo-diario-gratis/ar-AAyQQQv'
       
@@ -1031,7 +1139,7 @@ async def horoscopo(message):
 
         elif  "Sagitario" in listahorosc:
             tuhoroscopo = str(listahorosc[2])
-            horsemanal = "Horóscopo semanal para " + tuhoroscopo
+            horsemanal = "Horóscopo diario para " + tuhoroscopo
             # the target we want to open     
             url='https://www.msn.com/es-mx/estilo-de-vida/horoscopos/sagitario-hor%C3%B3scopo-diario-gratis/ar-AAyQQQv'
       
@@ -1054,7 +1162,7 @@ async def horoscopo(message):
 
         elif  "capricornio" in listahorosc:
             tuhoroscopo = str(listahorosc[2])
-            horsemanal = "Horóscopo semanal para " + tuhoroscopo
+            horsemanal = "Horóscopo diario para " + tuhoroscopo
             # the target we want to open     
             url='https://www.msn.com/es-mx/estilo-de-vida/horoscopos/capricornio-hor%C3%B3scopo-diario-gratis/ar-AAyQHkM'
       
@@ -1077,7 +1185,7 @@ async def horoscopo(message):
 
         elif  "Capricornio" in listahorosc:
             tuhoroscopo = str(listahorosc[2])
-            horsemanal = "Horóscopo semanal para " + tuhoroscopo
+            horsemanal = "Horóscopo diario para " + tuhoroscopo
             # the target we want to open     
             url='https://www.msn.com/es-mx/estilo-de-vida/horoscopos/capricornio-hor%C3%B3scopo-diario-gratis/ar-AAyQHkM'
       
@@ -1100,7 +1208,7 @@ async def horoscopo(message):
 
         elif  "acuario" in listahorosc:
             tuhoroscopo = str(listahorosc[2])
-            horsemanal = "Horóscopo semanal para " + tuhoroscopo
+            horsemanal = "Horóscopo diario para " + tuhoroscopo
             # the target we want to open     
             url='https://www.msn.com/es-mx/estilo-de-vida/horoscopos/acuario-hor%C3%B3scopo-diario-gratis/ar-AAyQwZ9'
       
@@ -1123,7 +1231,7 @@ async def horoscopo(message):
 
         elif  "Acuario" in listahorosc:
             tuhoroscopo = str(listahorosc[2])
-            horsemanal = "Horóscopo semanal para " + tuhoroscopo
+            horsemanal = "Horóscopo diario para " + tuhoroscopo
             # the target we want to open     
             url='https://www.msn.com/es-mx/estilo-de-vida/horoscopos/acuario-hor%C3%B3scopo-diario-gratis/ar-AAyQwZ9'
       
@@ -1146,7 +1254,7 @@ async def horoscopo(message):
 
         elif  "piscis" in listahorosc:
             tuhoroscopo = str(listahorosc[2])
-            horsemanal = "Horóscopo semanal para " + tuhoroscopo
+            horsemanal = "Horóscopo diario para " + tuhoroscopo
             # the target we want to open     
             url='https://www.msn.com/es-mx/estilo-de-vida/horoscopos/piscis-hor%C3%B3scopo-diario-gratis/ar-AAyQvcC'
       
@@ -1167,9 +1275,9 @@ async def horoscopo(message):
             else: 
                 print("Error")
 
-        elif  "piscis" in listahorosc:
+        elif  "Piscis" in listahorosc:
             tuhoroscopo = str(listahorosc[2])
-            horsemanal = "Horóscopo semanal para " + tuhoroscopo
+            horsemanal = "Horóscopo diario para " + tuhoroscopo
             # the target we want to open     
             url='https://www.msn.com/es-mx/estilo-de-vida/horoscopos/piscis-hor%C3%B3scopo-diario-gratis/ar-AAyQvcC'
       
@@ -1205,8 +1313,10 @@ async def horoscopo(message):
         embed.set_footer(text="Comando secreto 3/5.")
         await message.author.send(embed=embed)
         await message.author.send(piehor)
+        nombre1 = str(message.author.id)
+        nombre2 = "<@!" + nombre1 + ">"
         await message.delete()
-        await message.channel.send("Revisa tu chat privado uwu. Comando secreto 3/5.")
+        await message.channel.send("Revisa tu chat privado uwu," + nombre2 + ". Comando secreto 3/5.")
 
     
     except:
@@ -1248,9 +1358,14 @@ async def espachurrar(message):
         listaespa = list(espa1.split(" "))
         nombre1 = str(message.author.id)
         nombre2 = "<@!" + nombre1 + ">"
+        nombre3 = "<@" + nombre1 + ">"
         if listaespa[2] == nombre2:
             await message.channel.send('¿Te espachurarrás a tí mismo? O.o')
-        elif listaespa[2] == "<@!806203127451615252>":
+        elif listaespa[2] == nombre3:
+            await message.channel.send('¿Te espachurarrás a tí mismo? O.o')
+        elif listaespa[2] == "<@!813874482182619166>":
+            await message.channel.send('Ejem... Mejor no lo haga compa, si no quiere salir volando hasta Paraguay (que por cierto no existe XD)')
+        elif listaespa[2] == "<@813874482182619166>":
             await message.channel.send('Ejem... Mejor no lo haga compa, si no quiere salir volando hasta Paraguay (que por cierto no existe XD)')
         else:
             await message.channel.send('<@' + nombre1 + '> ha espachurrado a ' + listaespa[2] + '! O.o')
@@ -1280,9 +1395,14 @@ async def matar(message):
         listamatar = list(mat1.split(" "))
         nombre1 = str(message.author.id)
         nombre2 = "<@!" + nombre1 + ">"
+        nombre3 = "<@" + nombre1 + ">"
         if listamatar[2] == nombre2:
             await message.channel.send('No compa no lo haga, el suic1dio nunca es la opción, tiene muchas razones para vivir :c')
-        elif listamatar[2] == "<@!806203127451615252>":
+        if listamatar[2] == nombre3:
+            await message.channel.send('No compa no lo haga, el suic1dio nunca es la opción, tiene muchas razones para vivir :c')
+        elif listamatar[2] == "<@!813874482182619166>":
+            await message.channel.send('Acércate pt, vas a ver que te hago caca en 2 segundos...')
+        elif listamatar[2] == "<@813874482182619166>":
             await message.channel.send('Acércate pt, vas a ver que te hago caca en 2 segundos...')
         else:
             await message.channel.send('<@' + nombre1 + '> le dio en su maiz a ' + listamatar[2] + '! D:')
@@ -1312,9 +1432,14 @@ async def scorpion(message):
         listascor = list(scor1.split(" "))
         nombre1 = str(message.author.id)
         nombre2 = "<@!" + nombre1 + ">"
+        nombre3 = "<@" + nombre1 + ">"
         if listascor[2] == nombre2:
             await message.channel.send('¿Te dispararás a tí mismo? O.o')
-        elif listascor[2] == "<@!806203127451615252>":
+        elif listascor[2] == nombre3:
+            await message.channel.send('¿Te dispararás a vos mismo? O.o')
+        elif listascor[2] == "<@!813874482182619166>":
+            await message.channel.send('Ejem... Mejor no lo haga compa, si no quiere explotar ni lo intente...')
+        elif listascor[2] == "<@813874482182619166>":
             await message.channel.send('Ejem... Mejor no lo haga compa, si no quiere explotar ni lo intente...')
         else:
             await message.channel.send('<@' + nombre1 + '> le ha disparado con un scorpion a ' + listascor[2] + '! O.o')
@@ -1344,9 +1469,14 @@ async def sniper(message):
         listasniper = list(sniper1.split(" "))
         nombre1 = str(message.author.id)
         nombre2 = "<@!" + nombre1 + ">"
+        nombre3 = "<@" + nombre1 + ">"
         if listasniper[2] == nombre2:
             await message.channel.send('¿Te dispararás a tí mismo? O.o')
-        elif listasniper[2] == "<@!806203127451615252>":
+        if listasniper[2] == nombre3:
+            await message.channel.send('¿Te dispararás a tí mismo? O.o')
+        elif listasniper[2] == "<@!813874482182619166>":
+            await message.channel.send('Ejem... Mejor no lo haga compa, si no quiere una bala en su cola ni lo intente...')
+        elif listasniper[2] == "<@813874482182619166>":
             await message.channel.send('Ejem... Mejor no lo haga compa, si no quiere una bala en su cola ni lo intente...')
         else:
             await message.channel.send('<@' + nombre1 + '> ha snipeado a ' + listasniper[2] + '! Bien pro.')
@@ -1376,10 +1506,15 @@ async def teabag(message):
         listatea = list(tea1.split(" "))
         nombre1 = str(message.author.id)
         nombre2 = "<@!" + nombre1 + ">"
+        nombre3 = "<@" + nombre1 + ">"
         if listatea[2] == nombre2:
             await message.channel.send('¿Te vas a chupar los huevos tú mismo? O.o')
-        elif listatea[2] == "<@!806203127451615252>":
-            await message.channel.send('Yo te voy a teabaguear a ti pt')
+        elif listatea[2] == nombre3:
+            await message.channel.send('¿Te vas a chupar los huevos vos mismo? O.o')
+        elif listatea[2] == "<@!813874482182619166>":
+            await message.channel.send('Yo te voy a teabaguear a ti pt.')
+        elif listatea[2] == "<@813874482182619166>":
+            await message.channel.send('Yo te voy a teabaguear a ti pt.')
         else:
             await message.channel.send('TEABAG FATALITY A ' + listatea[2] + '!')
             await gifteabag(message)
@@ -1408,9 +1543,14 @@ async def banshee(message):
         listabans = list(bans1.split(" "))
         nombre1 = str(message.author.id)
         nombre2 = "<@!" + nombre1 + ">"
+        nombre3 = "<@" + nombre1 + ">"
         if listabans[2] == nombre2:
             await message.channel.send('A veces eres raro, no entiendo cómo te vas a matar a tí mismo con un banshee xd._.')
-        elif listabans[2] == "<@!806203127451615252>":
+        if listabans[2] == nombre3:
+            await message.channel.send('A veces eres raro, no entiendo cómo te vas a matar a vos mismo con un banshee xd._.')
+        elif listabans[2] == "<@!813874482182619166>":
+            await message.channel.send('Vente para acá hijo de tu pm vas a ver quien se muere...')
+        elif listabans[2] == "<@813874482182619166>":
             await message.channel.send('Vente para acá hijo de tu pm vas a ver quien se muere...')
         else:
             await message.channel.send('<@' + nombre1 + '> ha matado a ' + listabans[2] + ' con un Banshee!')
@@ -1440,10 +1580,15 @@ async def granada(message):
         listagrans = list(grans1.split(" "))
         nombre1 = str(message.author.id)
         nombre2 = "<@!" + nombre1 + ">"
+        nombre3 = "<@" + nombre1 + ">"
         await message.delete()
         if listagrans[2] == nombre2:
             await message.channel.send('Yo no lo haría si fuera tú... Comando secreto 5/5')
-        elif listagrans[2] == "<@!806203127451615252>":
+        elif listagrans[2] == nombre3:
+            await message.channel.send('Yo no lo haría si fuera vos... Comando secreto 5/5')
+        elif listagrans[2] == "<@!813874482182619166>":
+            await message.channel.send('Primero aprende a jugar XD. Comando secreto 5/5')
+        elif listagrans[2] == "<@813874482182619166>":
             await message.channel.send('Primero aprende a jugar XD. Comando secreto 5/5')
         else:
             await message.channel.send('<@' + nombre1 + '> ha matado a ' + listagrans[2] + ' con granadas!')
@@ -1485,15 +1630,15 @@ async def ball(message):
 
         embed = discord.Embed(
 
-            title="ThelVadam 8ball",
+            title=":8ball: ThelVadam 8ball",
             color=discord.Colour.random()
 
         )
-        embed.add_field(name=f"{message.author.name} pregunta:", value=mensaje2, inline=False)
-        embed.add_field(name="Respuesta de Thel 'Vadam:", value=linea, inline=False)
+        embed.add_field(name=f":question: {message.author.name} pregunta:", value=mensaje2, inline=False)
+        embed.add_field(name=":100: Respuesta de Thel 'Vadam:", value=linea, inline=False)
         await message.channel.send(embed=embed)
     except:
-        await message.channel.send("We, pero escribe algo._.")    
+        await message.channel.send("We, pero escribe algo._.")
 
 async def espada(message):
     try:
@@ -1501,9 +1646,14 @@ async def espada(message):
         listasword = list(sword1.split(" "))
         nombre1 = str(message.author.id)
         nombre2 = "<@!" + nombre1 + ">"
+        nombre3 = "<@" + nombre1 + ">"
         if listasword[2] == nombre2:
             await message.channel.send('¿Te auto espadearás? O.o')
-        elif listasword[2] == "<@!806203127451615252>":
+        elif listasword[2] == nombre3:
+            await message.channel.send('¿Te auto espadearás? O.o')
+        elif listasword[2] == "<@!813874482182619166>":
+            await message.channel.send('Ejem... Soy experto en espadas, si no quieres que te rebane como sushi ni te me acerques...')
+        elif listasword[2] == "<@813874482182619166>":
             await message.channel.send('Ejem... Soy experto en espadas, si no quieres que te rebane como sushi ni te me acerques...')
         else:
             await message.channel.send('<@' + nombre1 + '> ha espadeado a ' + listasword[2] + '!')
@@ -1526,5 +1676,494 @@ async def gifsword(message):
     print(linea)
     embed.set_image(url=linea)
     await message.channel.send(embed=embed)
+
+async def bola8(message):
+    try:
+        nombre1 = str(message.author.id)
+        nombre2 = "<@!" + nombre1 + ">"
+        msg = message.content
+        mensaje1 = list(msg.split(" "))
+        mensaje1.remove("!tv")
+        mensaje1.remove("bola8")
+        mensaje2 = ' '.join([str(item) for item in mensaje1 ])
+        linea = ""
+        file = copen("bolaocho.txt")
+        lines = file.count('\n')
+        random_line = file.getline(randint(1, lines))
+        linea = random_line
+
+        embed = discord.Embed(
+
+            title=":8ball: ThelVadam 8ball",
+            color=discord.Colour.random()
+
+        )
+        embed.add_field(name=f":question: {message.author.name} pregunta:", value=mensaje2, inline=False)
+        embed.add_field(name=":100: Respuesta de Thel 'Vadam:", value=linea, inline=False)
+        await message.channel.send(embed=embed)
+    except:
+        await message.channel.send("We, pero escribe algo._.")
+
+async def bolaocho(message):
+    try:
+        nombre1 = str(message.author.id)
+        nombre2 = "<@!" + nombre1 + ">"
+        msg = message.content
+        mensaje1 = list(msg.split(" "))
+        mensaje1.remove("!tv")
+        mensaje1.remove("bolaocho")
+        mensaje2 = ' '.join([str(item) for item in mensaje1 ])
+        linea = ""
+        file = copen("bolaocho.txt")
+        lines = file.count('\n')
+        random_line = file.getline(randint(1, lines))
+        linea = random_line
+
+        embed = discord.Embed(
+
+            title=":8ball: ThelVadam 8ball",
+            color=discord.Colour.random()
+
+        )
+        embed.add_field(name=f":question: {message.author.name} pregunta:", value=mensaje2, inline=False)
+        embed.add_field(name=":100: Respuesta de Thel 'Vadam:", value=linea, inline=False)
+        await message.channel.send(embed=embed)
+    except:
+        await message.channel.send("We, pero escribe algo._.")
+
+async def pregunta(message):
+    try:
+        nombre1 = str(message.author.id)
+        nombre2 = "<@!" + nombre1 + ">"
+        msg = message.content
+        mensaje1 = list(msg.split(" "))
+        mensaje1.remove("!tv")
+        mensaje1.remove("pregunta")
+        mensaje2 = ' '.join([str(item) for item in mensaje1 ])
+        linea = ""
+        file = copen("bolaocho.txt")
+        lines = file.count('\n')
+        random_line = file.getline(randint(1, lines))
+        linea = random_line
+
+        embed = discord.Embed(
+
+            title=":8ball: ThelVadam 8ball",
+            color=discord.Colour.random()
+
+        )
+        embed.add_field(name=f":question: {message.author.name} pregunta:", value=mensaje2, inline=False)
+        embed.add_field(name=":100: Respuesta de Thel 'Vadam:", value=linea, inline=False)
+        await message.channel.send(embed=embed)
+    except:
+        await message.channel.send("We, pero escribe algo._.")
+
+async def bolanegra(message):
+    try:
+        nombre1 = str(message.author.id)
+        nombre2 = "<@!" + nombre1 + ">"
+        msg = message.content
+        mensaje1 = list(msg.split(" "))
+        mensaje1.remove("!tv")
+        mensaje1.remove("bolanegra")
+        mensaje2 = ' '.join([str(item) for item in mensaje1 ])
+        linea = ""
+        file = copen("bolaocho.txt")
+        lines = file.count('\n')
+        random_line = file.getline(randint(1, lines))
+        linea = random_line
+
+        embed = discord.Embed(
+
+            title=":8ball: ThelVadam 8ball",
+            color=discord.Colour.random()
+
+        )
+        embed.add_field(name=f":question: {message.author.name} pregunta:", value=mensaje2, inline=False)
+        embed.add_field(name=":100: Respuesta de Thel 'Vadam:", value=linea, inline=False)
+        await message.channel.send(embed=embed)
+    except:
+        await message.channel.send("We, pero escribe algo._.")
+
+async def question(message):
+    try:
+        nombre1 = str(message.author.id)
+        nombre2 = "<@!" + nombre1 + ">"
+        msg = message.content
+        mensaje1 = list(msg.split(" "))
+        mensaje1.remove("!tv")
+        mensaje1.remove("pregúnta")
+        mensaje2 = ' '.join([str(item) for item in mensaje1 ])
+        linea = ""
+        file = copen("bolaocho.txt")
+        lines = file.count('\n')
+        random_line = file.getline(randint(1, lines))
+        linea = random_line
+
+        embed = discord.Embed(
+
+            title=":8ball: ThelVadam 8ball",
+            color=discord.Colour.random()
+
+        )
+        embed.add_field(name=f":question: {message.author.name} pregunta:", value=mensaje2, inline=False)
+        embed.add_field(name=":100: Respuesta de Thel 'Vadam:", value=linea, inline=False)
+        await message.channel.send(embed=embed)
+    except:
+        await message.channel.send("We, pero escribe algo._.")
+
+async def question2(message):
+    try:
+        nombre1 = str(message.author.id)
+        nombre2 = "<@!" + nombre1 + ">"
+        msg = message.content
+        mensaje1 = list(msg.split(" "))
+        mensaje1.remove("!tv")
+        mensaje1.remove("question")
+        mensaje2 = ' '.join([str(item) for item in mensaje1 ])
+        linea = ""
+        file = copen("bolaocho.txt")
+        lines = file.count('\n')
+        random_line = file.getline(randint(1, lines))
+        linea = random_line
+
+        embed = discord.Embed(
+
+            title=":8ball: ThelVadam 8ball",
+            color=discord.Colour.random()
+
+        )
+        embed.add_field(name=f":question: {message.author.name} pregunta:", value=mensaje2, inline=False)
+        embed.add_field(name=":100: Respuesta de Thel 'Vadam:", value=linea, inline=False)
+        await message.channel.send(embed=embed)
+    except:
+        await message.channel.send("We, pero escribe algo._.")
+
+async def encuesta(message):
+    try:
+        msg = message.content
+        mensaje1 = list(msg.split(" "))
+        mensaje1.remove("!tv")
+        mensaje1.remove("encuesta")
+        mensaje2 = ' '.join([str(item) for item in mensaje1 ])
+
+        embed = discord.Embed(
+
+            title="Encuesta de Thel 'Vadam",
+            color=discord.Colour.random()
+
+        )
+        embed.add_field(name=":question: Encuesta:", value=mensaje2, inline=False)
+        embed.add_field(name="Respuesta 1", value=":white_check_mark: Sí", inline=True)
+        embed.add_field(name="Respuesta 2", value="⛔ No", inline=True)
+        await message.delete()
+        message = await message.channel.send(embed=embed)
+        await message.add_reaction("✅")
+        await message.add_reaction("⛔")
+    except:
+        await message.channel.send("We, pero escribe algo._.")
+
+async def poll(message):
+    try:
+        msg = message.content
+        mensaje1 = list(msg.split(" "))
+        mensaje1.remove("!tv")
+        mensaje1.remove("poll")
+        mensaje2 = ' '.join([str(item) for item in mensaje1 ])
+
+        embed = discord.Embed(
+
+            title="Encuesta de Thel 'Vadam",
+            color=discord.Colour.random()
+
+        )
+        embed.add_field(name=":question: Encuesta:", value=mensaje2, inline=False)
+        embed.add_field(name="Respuesta 1", value=":white_check_mark: Sí", inline=True)
+        embed.add_field(name="Respuesta 2", value="⛔ No", inline=True)
+        await message.delete()
+        message = await message.channel.send(embed=embed)
+        await message.add_reaction("✅")
+        await message.add_reaction("⛔")
+    except:
+        await message.channel.send("We, pero escribe algo._.")
+
+async def update(message):
+    handler = open('msgdia.txt')
+    msgdia1 = handler.read()
+    embed = discord.Embed(
+
+        title="Novedades de Thel 'Vadam",
+        description=msgdia1,
+        color=discord.Colour.random()
+
+    )
+    #message_channel = client.get_channel(803850947734011925)
+    await message.delete()
+    await message.channel.send(embed = embed)
+
+async def avatar(message):
+    try:
+        try:
+            avatar1 = message.content
+            listavatar = list(avatar1.split(" "))
+            nombre1 = message.author
+            nombre2 = str(listavatar[2])
+            nombrelist = list(nombre2.split("<@!"))
+            #print(nombrelist)
+            nombre4 = str(nombrelist[1])
+            nombrelist2 = list(nombre4.split(">"))
+            nombre5 = str(nombrelist2[0])
+            userid = int(nombre5)
+            user = await client.fetch_user(userid)
+            us = str(user)
+            usuario = list(us.split("#"))
+            persona = str(usuario[0])
+            nombre3 = "Avatar de " + persona
+            peticion = f"Pedido por: {message.author.name}"
+            pfp = user.avatar_url
+            foto = str(pfp)
+            embed = discord.Embed(
+
+                title=nombre3,
+                url = foto,
+                color=discord.Colour.random()
+
+            )
+            #username = user.name
+            embed.set_image(url=pfp)
+            embed.set_footer(text=peticion)
+            await message.channel.send(embed=embed)
+
+        except:
+            nombre4 = str(nombrelist[0])
+            nombrelist2 = list(nombre4.split("<@")) 
+            nombre41 = str(nombrelist2[1])      
+            nombrelist3 = list(nombre41.split(">"))   
+            nombre5 = str(nombrelist3[0])    
+            userid = int(nombre5)
+            user = await client.fetch_user(userid)
+            us = str(user)
+            usuario = list(us.split("#"))
+            persona = str(usuario[0])
+            nombre3 = "Avatar de " + persona
+            peticion = f"Pedido por: {message.author.name}"
+            pfp = user.avatar_url
+            foto = str(pfp)
+        
+            embed = discord.Embed(
+
+                title=nombre3,
+                url=foto,
+                color=discord.Colour.random()
+
+            )
+            #username = user.name
+            embed.set_image(url=pfp)
+            embed.set_footer(text=peticion)
+            await message.channel.send(embed=embed)  
+    except:
+        nombre3 = f"Avatar de {message.author.name}"
+        autor = message.author
+        pfp2 = autor.avatar_url
+        foto2 = str(pfp2)
+        embed = discord.Embed(
+
+            title=nombre3,
+            url=foto2,
+            color=discord.Colour.random()
+
+        )
+        embed.set_image(url=pfp2)
+        await message.channel.send(embed=embed)
+
+async def confesion(message):
+    try:
+        msg = message.content
+        mensaje1 = list(msg.split(" "))
+        mensaje1.remove("!tv")
+        mensaje1.remove("confesion")
+        mensaje2 = ' '.join([str(item) for item in mensaje1 ])
+
+        embed = discord.Embed(
+
+            title="Confesión:",
+            description=mensaje2,
+            color=discord.Colour.random()
+
+        )
+        await message.channel.send(embed=embed)
+        await message.delete()
+    except:
+        await message.delete()
+        await message.channel.send("We, pero escribe algo._.")
+
+async def confession(message):
+    try:
+        msg = message.content
+        mensaje1 = list(msg.split(" "))
+        mensaje1.remove("!tv")
+        mensaje1.remove("confession")
+        mensaje2 = ' '.join([str(item) for item in mensaje1 ])
+
+
+        embed = discord.Embed(
+
+            title="Confesión:",
+            description=mensaje2,
+            color=discord.Colour.random()
+
+        )
+        await message.channel.send(embed=embed)
+        await message.delete()
+    except:
+        await message.delete()
+        await message.channel.send("We, pero escribe algo._.")
+
+async def confesionn(message):
+    try:
+        msg = message.content
+        mensaje1 = list(msg.split(" "))
+        mensaje1.remove("!tv")
+        mensaje1.remove("confesión")
+        mensaje2 = ' '.join([str(item) for item in mensaje1 ])
+
+
+        embed = discord.Embed(
+
+            title="Confesión:",
+            description=mensaje2,
+            color=discord.Colour.random()
+
+        )
+        await message.channel.send(embed=embed)
+        await message.delete()
+    except:
+        await message.delete()
+        await message.channel.send("We, pero escribe algo._.")
+
+async def equipo(message):
+    try:
+        nombre1 = str(message.author.id)
+        nombre2 = "<@!" + nombre1 + ">"
+        msg = message.content
+        mensaje1 = list(msg.split(" "))
+        usuario = mensaje1[2] 
+        linea = ""
+        file = copen("equipo.txt")
+        lines = file.count('\n')
+        random_line = file.getline(randint(1, lines))
+        linea = random_line
+        lin = list(linea.split("\n"))
+        if "0" in lin:
+            mensaje = "0 % [. . . . . . .] \n**No son compatibles para hacer equipo, lo mejor es que no intenten jugar un vs juntos.**"
+            await message.channel.send(mensaje)
+        elif "25" in lin:
+            mensaje = "25 % [███ . . . . .]\n**Son muy poco compatibles. Quizás podrían hacerla en un versus aunque claramente uno hará todo el trabajo.**"
+            await message.channel.send(mensaje)
+        elif "50" in lin:
+            mensaje = "50 % [████ . . . .]\n**Son compatibles. Tienen 50% de probabilidades de ganar un vs como equipo.**"
+            await message.channel.send(mensaje)
+        elif "75" in lin:
+            mensaje = "75 % [████████ . . .]\n**Son altamente compatibles, tienen una alta probabilidad de ganar la mayoría de los vs juntos.**"
+            await message.channel.send(mensaje)
+        elif "100" in lin:
+            mensaje = "100 % [███████████]\n**Son totalmente compatibles, seguramente ganarán todos sus vs juntos.**"
+            await message.channel.send(mensaje)
+
+        await gifcompat(message)
+
+    except:
+        await message.channel.send("Pero menciona a alguien mi buen._.")
+
+async def gifcompat(message):
+    embed = discord.Embed(
+
+        title="ThelVadam",
+        color=discord.Colour.random()
+
+    )
+    linea = ""
+    file = copen("swordimagen.txt")
+    lines = file.count('\n')
+    random_line = file.getline(randint(1, lines))
+    linea = random_line
+    print(linea)
+    embed.set_image(url=linea)
+    await message.channel.send(embed=embed)
+
+async def espiar(message):
+    try:
+        espiar1 = message.content
+        listaespiar = list(espiar1.split(" "))
+        nombre1 = str(message.author.id)
+        nombre2 = "<@!" + nombre1 + ">"
+        nombre3 = "<@" + nombre1 + ">"
+        if listaespiar[2] == nombre2:
+            await message.channel.send('¿Te apuntarás con un sniper a tí mismo? O.o')
+        elif listaespiar[2] == nombre3:
+            await message.channel.send('¿Te apuntarás con un sniper a vos mismo? O.o')
+        elif listaespiar[2] == "<@!813874482182619166>":
+            await message.channel.send('Quita ese sniper de mi cara boludo.')
+        elif listaespiar[2] == "<@813874482182619166>":
+            await message.channel.send('Quita ese sniper de mi cara boludo.')
+        else:
+            await message.channel.send('¡ <@' + nombre1 + '> está apuntando con un sniper a ' + listaespiar[2] + ' ! ¡A cubierto!')
+            await gifespiar(message)
+    except:
+        await message.channel.send('No seas burro. Tienes que mencionar a alguien ._.')
+
+async def gifespiar(message):
+    embed = discord.Embed(
+
+        title="ThelVadam",
+        color=discord.Colour.random()
+
+    )
+    linea = ""
+    file = copen("sniperimagen.txt")
+    lines = file.count('\n')
+    random_line = file.getline(randint(1, lines))
+    linea = random_line
+    print(linea)
+    embed.set_image(url=linea)
+    await message.channel.send(embed=embed)
+
+async def wraith(message):
+    try:
+        scor1 = message.content
+        listascor = list(scor1.split(" "))
+        nombre1 = str(message.author.id)
+        nombre2 = "<@!" + nombre1 + ">"
+        nombre3 = "<@" + nombre1 + ">"
+        if listascor[2] == nombre2:
+            await message.channel.send('¿Te dispararás a tí mismo? O.o')
+        elif listascor[2] == nombre3:
+            await message.channel.send('¿Te dispararás a vos mismo? O.o')
+        elif listascor[2] == "<@!813874482182619166>":
+            await message.channel.send('Ejem... Mejor no lo haga compa, si no quiere explotar ni lo intente...')
+        elif listascor[2] == "<@813874482182619166>":
+            await message.channel.send('Ejem... Mejor no lo haga compa, si no quiere explotar ni lo intente...')
+        else:
+            await message.channel.send('<@' + nombre1 + '> le ha disparado una bola enorme de plasma a ' + listascor[2] + ' con un wraith! O.o')
+            await gifwr(message)
+    except:
+        await message.channel.send('No seas burro. Tienes que mencionar a alguien ._.')
+
+async def gifwr(message):
+    embed = discord.Embed(
+
+        title="ThelVadam",
+        color=discord.Colour.random()
+
+    )
+    linea = ""
+    file = copen("wraith.txt")
+    lines = file.count('\n')
+    random_line = file.getline(randint(1, lines))
+    linea = random_line
+    print(linea)
+    embed.set_image(url=linea)
+    await message.channel.send(embed=embed)
+
 
 client.run(os.getenv('TOKEN'))
