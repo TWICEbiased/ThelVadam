@@ -1,7 +1,7 @@
-Actualización de Thel 'Vadam: Versión 2.0
+Actualización de Thel 'Vadam: Versión 2.5
 
-- Se agregaron más interacciones con armas.
-- Se agregaron más funciones interesantes.
+- FEEDBACKS: Ahora se podrán enviar feedbacks (opiniones y sugerencias) con respecto al bot en el canal #comandos-bot💻.
+- Como ya se habrán dado cuenta, se agregó un sistema de reportes. Para evitar reportes es necesario mantener una conducta apropiada en el clan.
 
 Para más información, escribe "!tv ayuda"
 
