@@ -1,11 +1,12 @@
-Actualización de Thel 'Vadam: Versión 1.0
-¡Hemos llegado a la versión 1.0! 😄😄
+Actualización de Thel 'Vadam: Versión 2.0
 
-- Se solucionó un importante error con respecto a la mención de usuarios.
-- Se agrearon más interacciones con armas.
-- Se agregaron más formas de escribir un mismo comando.
-- Se agregó la capacidad de ver el link del avatar de los usuarios.
+- Se agregaron más interacciones con armas.
+- Se agregaron más funciones interesantes.
 
 Para más información, escribe "!tv ayuda"
+
+Somos avalancha, somos de Reach. 
+Somos determinación, somos honor.
+Somos RAR. Somos Spartan.
 
 DISCLAIMER: Este software está licenciado bajo la GNU GPL v3. Para más información, revise el archivo COPYING del repositorio de GitHub donde se encuentra el código fuente del mismo, o visite https://www.gnu.org/licenses/gpl-3.0.html
