@@ -125,20 +125,20 @@ async def on_message(message):
     elif "pt" in listamensaje:
         await groserias(message)
     elif "mierda" in listamensaje:
-        await groserias(message)
+        await agresivo(message)
     elif "Mierda" in listamensaje:
-        await groserias(message)
+        await agresivo(message)
+    elif "mierd" in listamensaje:
+        await agresivo(message)
+    elif "Mierd" in listamensaje:
+        await agresivo(message)
     elif "mrd" in listamensaje:
-        await groserias(message)
+        await agresivo(message)
     elif "Mrd" in listamensaje:
-        await groserias(message)
+        await agresivo(message)
     elif "fuck" in listamensaje:
         await groserias(message)
     elif "Fuck" in listamensaje:
-        await groserias(message)
-    elif "shit" in listamensaje:
-        await groserias(message)
-    elif "Shit" in listamensaje:
         await groserias(message)
     elif "bullshit" in listamensaje:
         await groserias(message)
@@ -147,6 +147,10 @@ async def on_message(message):
     elif "bitch" in listamensaje:
         await groserias(message)
     elif "Bitch" in listamensaje:
+        await groserias(message)
+    elif "bitch?" in listamensaje:
+        await groserias(message)
+    elif "Bitch?" in listamensaje:
         await groserias(message)
     elif "qliao" in listamensaje:
         await groserias(message)
@@ -158,7 +162,7 @@ async def on_message(message):
         await groserias(message)
     elif "perra" in listamensaje:
         await groserias(message)
-    elif "perro" in listamensaje:
+    """elif "perro" in listamensaje:
         await groserias(message)
     elif "Perra" in listamensaje:
         await groserias(message)
@@ -171,10 +175,12 @@ async def on_message(message):
     elif "Prra" in listamensaje:
         await groserias(message)
     elif "Prro" in listamensaje:
-        await groserias(message)
-    elif "mk" in listamensaje:
+        await groserias(message)"""
+    if "mk" in listamensaje:
         await groserias(message)
     elif "Mk" in listamensaje:
+        await groserias(message)
+    elif ":regional_indicator_h:ijueputa" in listamensaje:
         await groserias(message)
     elif "<@&788840600640290849>" in listamensaje:
             nombre1 = str(message.author.id)
@@ -277,6 +283,30 @@ async def on_message(message):
     elif message.content.startswith("tu cul"):
         await agresivo(message)
     elif message.content.startswith("Tu cul"):
+        await agresivo(message)
+    elif message.content.startswith("callese"):
+        await agresivo(message)
+    elif message.content.startswith("Callese"):
+        await agresivo(message)
+    elif message.content.startswith("calle"):
+        await agresivo(message)
+    elif message.content.startswith("Calle"):
+        await agresivo(message)
+    elif message.content.startswith("calla"):
+        await agresivo(message)
+    elif message.content.startswith("Calla"):
+        await agresivo(message)
+    elif message.content.startswith("Callate"):
+        await agresivo(message)
+    elif message.content.startswith("callate"):
+        await agresivo(message)
+    elif message.content.startswith("se calla"):
+        await agresivo(message)
+    elif message.content.startswith("Se calla"):
+        await agresivo(message)
+    elif message.content.startswith("te callas"):
+        await agresivo(message)
+    elif message.content.startswith("Te callas"):
         await agresivo(message)
     elif message.content.startswith('que hora es'):
         await timehora(message)
@@ -814,6 +844,13 @@ async def on_message(message):
             nombre2 = "<@!" + nombre1 + ">"
             if nombre2 == "<@!721920162005123142>":
                 await mejoden(message)
+            else:
+                await message.channel.send('No tienes permiso para ejecutar este comando.')
+    elif message.content.startswith("!tv jodbot"):
+            nombre1 = str(message.author.id)
+            nombre2 = "<@!" + nombre1 + ">"
+            if nombre2 == "<@!721920162005123142>":
+                await jodbot(message)
             else:
                 await message.channel.send('No tienes permiso para ejecutar este comando.') 
 
@@ -2689,10 +2726,10 @@ async def feedback(message):
         await message.channel.purge(limit=1)
 
 async def mejoden(message):
-    mensaje = message.content
-    listamensaje = list(mensaje.split(" "))
-    usuario = listamensaje[2]
     try:
+        mensaje = message.content
+        listamensaje = list(mensaje.split(" "))
+        usuario = listamensaje[2]
         mensaje = str(message.content)
         autor = f"{message.author.name}"
         embed = discord.Embed(
@@ -2708,7 +2745,29 @@ async def mejoden(message):
         await message.delete()
         
     except:
-        return  
+        await message.delete()
+
+async def jodbot(message):
+    try:
+        mensaje = message.content
+        listamensaje = list(mensaje.split(" "))
+        usuario = listamensaje[2]
+        mensaje = str(message.content)
+        autor = f"{message.author.name}"
+        embed = discord.Embed(
+
+            title=f"Aviso a " + usuario,
+            description="Insultó al bot.",
+            color=discord.Colour.random()
+
+        )
+        await message.channel.send(embed=embed)
+        message_channel = client.get_channel(815063853494829066)    
+        await message_channel.send(embed=embed)
+        await message.delete()
+        
+    except:
+        await message.delete()
 
 
 client.run(os.getenv('TOKEN'))
