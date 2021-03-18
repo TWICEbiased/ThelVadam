@@ -1,9 +1,6 @@
-Actualización de Thel 'Vadam: Versión 2.5
+Thel 'Vadam
 
-- FEEDBACKS: Ahora se podrán enviar feedbacks (opiniones y sugerencias) con respecto al bot en el canal #comandos-bot💻.
-- Como ya se habrán dado cuenta, se agregó un sistema de reportes. Para evitar reportes es necesario mantener una conducta apropiada en el clan.
-
-Para más información, escribe "!tv ayuda"
+Ha concluído el soporte técnico de Thel 'Vadam. ¡Gracias por todo su apoyo! Esperamos contar con vosotros para proyectos futuros.
 
 Somos avalancha, somos de Reach. 
 Somos determinación, somos honor.

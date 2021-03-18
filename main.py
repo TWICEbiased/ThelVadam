@@ -1,4 +1,4 @@
-#ThelVadam, bot para Discord hecho por Memo Flores, v2.5
+#ThelVadam, bot para Discord hecho por Memo Flores, v4.1
 
 """ This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -21,6 +21,7 @@ import random
 from random import randint
 from discord.ext import commands, tasks
 from discord.ext.commands import Bot
+from discord.utils import get
 import asyncio
 import datetime as dt
 from linereader import copen
@@ -31,6 +32,46 @@ import urllib.request
 
 keep_alive()
 client = discord.Client()
+
+"""strsanti = 0
+strjupjey = 0
+strtlacuache = 0
+strcristo = 0
+strogh = 0
+strcrack = 0
+strjecer = 0
+strbuebito = 0
+strsmoke = 0
+strnoble = 0
+strsebas = 0
+strhisokan = 0
+strjesid = 0
+strrumply = 0
+strbochi = 0
+strspartan = 0
+strpegasus = 0
+strredentor = 0
+strtesca = 0
+strelote = 0
+strjean = 0
+strjulio = 0
+strkaneki = 0
+strpvp = 0
+strsamuel = 0
+strkratos = 0
+strbanda = 0
+strbb = 0
+strborder = 0
+strbuvalo = 0
+strdaniel = 0
+strdrosy = 0
+strmarks = 0
+strrambo = 0
+strscorpinus = 0
+strtadeo = 0
+stryorha2b = 0
+strjuice = 0
+strjpa = 0"""
 
 @client.event
 async def on_ready():
@@ -51,39 +92,51 @@ async def on_message(message):
         return
     mensaje1 = message.content
     listamensaje = list(mensaje1.split(" "))
-    if "jueputa" in listamensaje:
+    """if "jueputa" in listamensaje:
+        await strikes(message)
         await groserias(message)
     elif "hijueputa" in listamensaje:
+        await strikes(message)
         nombre1 = str(message.author.id)
         await groserias(message)
     elif "gonorrea" in listamensaje:
+        await strikes(message)
         nombre1 = str(message.author.id)
         await groserias(message)
     elif "malparida" in listamensaje:
+        await strikes(message)
         nombre1 = str(message.author.id)
         await groserias(message)
     elif "malparido" in listamensaje:
+        await strikes(message)
         nombre1 = str(message.author.id)
         await groserias(message)
     elif "Jueputa" in listamensaje:
+        await strikes(message)
         nombre1 = str(message.author.id)
         await groserias(message)
     elif "Hijueputa" in listamensaje:
+        await strikes(message)
         nombre1 = str(message.author.id)
         await groserias(message)
     elif "ijueputa" in listamensaje:
+        await strikes(message)
         nombre1 = str(message.author.id)
         await groserias(message)
     elif "Ijueputa" in listamensaje:
+        await strikes(message)
         nombre1 = str(message.author.id)
         await groserias(message)
     elif "Malparido" in listamensaje:
+        await strikes(message)
         nombre1 = str(message.author.id)
         await groserias(message)
     elif "Malparida" in listamensaje:
+        await strikes(message)
         nombre1 = str(message.author.id)
         await groserias(message)
     elif "Gonorrea" in listamensaje:
+        await strikes(message)
         nombre1 = str(message.author.id)
         await groserias(message)
     elif "puto" in listamensaje:
@@ -106,6 +159,7 @@ async def on_message(message):
         if nombre2 == "<@!721920162005123142>":
             return
         else:
+            await strikes(message)
             await groserias(message)
     elif "Puta" in listamensaje:
         nombre1 = str(message.author.id)
@@ -113,56 +167,52 @@ async def on_message(message):
         if nombre2 == "<@!721920162005123142>":
             return
         else:
+            await strikes(message)
             await groserias(message)
     elif "hijo de p" in listamensaje:
+        await strikes(message)
         await groserias(message)
     elif "Hijo de p" in listamensaje:
+        await strikes(message)
+        await groserias(message)
+    elif "hdp" in listamensaje:
+        await strikes(message)
+        await groserias(message)
+    elif "HDP" in listamensaje:
+        await strikes(message)
         await groserias(message)
     elif "Hija de p" in listamensaje:
+        await strikes(message)
         await groserias(message)
     elif "hija de p" in listamensaje:
+        await strikes(message)
         await groserias(message)
-    elif "pt" in listamensaje:
-        await groserias(message)
-    elif "mierda" in listamensaje:
-        await agresivo(message)
-    elif "Mierda" in listamensaje:
-        await agresivo(message)
-    elif "mierd" in listamensaje:
-        await agresivo(message)
-    elif "Mierd" in listamensaje:
-        await agresivo(message)
-    elif "mrd" in listamensaje:
-        await agresivo(message)
-    elif "Mrd" in listamensaje:
-        await agresivo(message)
     elif "fuck" in listamensaje:
         await groserias(message)
     elif "Fuck" in listamensaje:
         await groserias(message)
-    elif "bullshit" in listamensaje:
+    if "bullshit" in listamensaje:
+        await strikes(message)
         await groserias(message)
     elif "Bullshit" in listamensaje:
+        await strikes(message)
         await groserias(message)
     elif "bitch" in listamensaje:
+        await strikes(message)
         await groserias(message)
     elif "Bitch" in listamensaje:
+        await strikes(message)
         await groserias(message)
     elif "bitch?" in listamensaje:
+        await strikes(message)
         await groserias(message)
     elif "Bitch?" in listamensaje:
-        await groserias(message)
-    elif "qliao" in listamensaje:
-        await groserias(message)
-    elif "Qliao" in listamensaje:
-        await groserias(message)
-    elif "culiao" in listamensaje:
-        await groserias(message)
-    elif "Culiao" in listamensaje:
+        await strikes(message)
         await groserias(message)
     elif "perra" in listamensaje:
+        await strikes(message)
         await groserias(message)
-    """elif "perro" in listamensaje:
+    elif "perro" in listamensaje:
         await groserias(message)
     elif "Perra" in listamensaje:
         await groserias(message)
@@ -175,29 +225,28 @@ async def on_message(message):
     elif "Prra" in listamensaje:
         await groserias(message)
     elif "Prro" in listamensaje:
-        await groserias(message)"""
-    if "mk" in listamensaje:
         await groserias(message)
-    elif "Mk" in listamensaje:
-        await groserias(message)
-    elif ":regional_indicator_h:ijueputa" in listamensaje:
+
+    if ":regional_indicator_h:ijueputa" in listamensaje:
+        await strikes(message)
         await groserias(message)
     elif "<@&788840600640290849>" in listamensaje:
-            nombre1 = str(message.author.id)
-            nombre2 = "<@!" + nombre1 + ">"
-            if nombre2 == "<@!721920162005123142>":
+            nombre1 = message.author.id
+
+            if nombre1 == 721920162005123142:
                 return
-            if nombre2 == "<@!757406459167244288>":
+            if nombre1 == 757406459167244288:
                 return
-            elif nombre2 == "<@!758192182389375006>":
+            elif nombre1 == 758192182389375006:
                 return
-            elif nombre2 == "<@!734412668789850172>":
+            elif nombre1 == 734412668789850172:
                 return
-            elif nombre2 == "<@!656335364256169996>":
+            elif nombre1 == 656335364256169996:
                 return
             else:
+                await strikes(message)
                 await repormiembros(message)
-    """if message.content.startswith('hola'):
+    if message.content.startswith('hola'):
         nombre1 = str(message.author.id)
         await message.channel.send(' ¡Hola,  <@' + nombre1 + '>! ¿Qué tal te va?')
     elif message.content.startswith('Hola Bien Y Tu? :D'):
@@ -243,7 +292,7 @@ async def on_message(message):
         await message.channel.send('¡Buen día, <@' + nombre1 + '>!')
     elif message.content.startswith('Buen día'):
         nombre1 = str(message.author.id)
-        await message.channel.send('¡Buen día, <@' + nombre1 + '>! No olvides cuidarte de la infección del flood :3')"""
+        await message.channel.send('¡Buen día, <@' + nombre1 + '>! No olvides cuidarte de la infección del flood :3')
     if message.content.startswith("no te pregun"):
         await agresivo(message)
     elif message.content.startswith("No te pregun"):
@@ -257,57 +306,103 @@ async def on_message(message):
     elif message.content.startswith("No me interesa"):
         await agresivo(message)
     elif message.content.startswith("chinga tu"):
+        await strikes(message)
         await agresivo(message)
     elif message.content.startswith("Chinga tu"):
+        await strikes(message)
         await agresivo(message)
     elif message.content.startswith("chingas a tu"):
+        await strikes(message)
         await agresivo(message)
     elif message.content.startswith("Chingas a tu"):
+        await strikes(message)
         await agresivo(message)
     elif message.content.startswith("chinga a tu"):
+        await strikes(message)
         await agresivo(message)
     elif message.content.startswith("Chinga a tu"):
+        await strikes(message)
         await agresivo(message)
     elif message.content.startswith("tu put"):
+        await strikes(message)
         await agresivo(message)
     elif message.content.startswith("Tu put"):
+        await strikes(message)
         await agresivo(message)
     elif message.content.startswith("tu pinc"):
+        await strikes(message)
         await agresivo(message)
     elif message.content.startswith("Tu pinc"):
+        await strikes(message)
         await agresivo(message)
     elif message.content.startswith("tu col"):
+        await strikes(message)
         await agresivo(message)
     elif message.content.startswith("Tu col"):
+        await strikes(message)
         await agresivo(message)
     elif message.content.startswith("tu cul"):
+        await strikes(message)
         await agresivo(message)
     elif message.content.startswith("Tu cul"):
-        await agresivo(message)
-    elif message.content.startswith("callese"):
-        await agresivo(message)
-    elif message.content.startswith("Callese"):
+        await strikes(message)
         await agresivo(message)
     elif message.content.startswith("calle"):
-        await agresivo(message)
+        nombre1 = str(message.author.id)
+        nombre2 = "<@!" + nombre1 + ">"
+        if nombre2 == "<@!721920162005123142>":
+            return
+        else:
+            await agresivo(message)
     elif message.content.startswith("Calle"):
-        await agresivo(message)
+        nombre1 = str(message.author.id)
+        nombre2 = "<@!" + nombre1 + ">"
+        if nombre2 == "<@!721920162005123142>":
+            return
+        else:
+            await agresivo(message)
     elif message.content.startswith("calla"):
-        await agresivo(message)
+        nombre1 = str(message.author.id)
+        nombre2 = "<@!" + nombre1 + ">"
+        if nombre2 == "<@!721920162005123142>":
+            return
+        else:
+            await agresivo(message)
     elif message.content.startswith("Calla"):
-        await agresivo(message)
-    elif message.content.startswith("Callate"):
-        await agresivo(message)
-    elif message.content.startswith("callate"):
-        await agresivo(message)
+        nombre1 = str(message.author.id)
+        nombre2 = "<@!" + nombre1 + ">"
+        if nombre2 == "<@!721920162005123142>":
+            return
+        else:
+            await agresivo(message)
     elif message.content.startswith("se calla"):
-        await agresivo(message)
+        nombre1 = str(message.author.id)
+        nombre2 = "<@!" + nombre1 + ">"
+        if nombre2 == "<@!721920162005123142>":
+            return
+        else:
+            await agresivo(message)
     elif message.content.startswith("Se calla"):
-        await agresivo(message)
+        nombre1 = str(message.author.id)
+        nombre2 = "<@!" + nombre1 + ">"
+        if nombre2 == "<@!721920162005123142>":
+            return
+        else:
+            await agresivo(message)
     elif message.content.startswith("te callas"):
-        await agresivo(message)
+        nombre1 = str(message.author.id)
+        nombre2 = "<@!" + nombre1 + ">"
+        if nombre2 == "<@!721920162005123142>":
+            return
+        else:
+            await agresivo(message)
     elif message.content.startswith("Te callas"):
-        await agresivo(message)
+        nombre1 = str(message.author.id)
+        nombre2 = "<@!" + nombre1 + ">"
+        if nombre2 == "<@!721920162005123142>":
+            return
+        else:
+            await agresivo(message)
     elif message.content.startswith('que hora es'):
         await timehora(message)
     elif message.content.startswith('qué hora es'):
@@ -323,27 +418,18 @@ async def on_message(message):
     elif message.content.startswith('Que hora son'):
         await timehora(message)
     elif message.content.startswith('Qué hora son'):
-        await timehora(message)
-    elif message.content.startswith('!tv ayuda'):
+        await timehora(message)"""
+    if message.content.startswith('!tv ayuda'):
         await ayuda(message)
     elif message.content.startswith('!tv help'):
         await ayuda(message)
-    canal = str(message.channel.id)
-    if message.content.startswith('!tv me ama'):
-        if canal == "815063141741363230":
+    elif message.content.startswith("!tv me ama"):
             await desicionamor(message)
-        else:
-            await bots(message)
+
     elif message.content.startswith('!tv es pendejo'):
-        if canal == "815063141741363230":
             await desicionpendejo(message)
-        else:
-            await bots(message)
     elif message.content.startswith('!tv es pendeja'):
-        if canal == "815063141741363230":
             await desicionpendejo(message)
-        else:
-            await bots(message)
     elif message.content.startswith('!tv status1'):
         nombre1 = str(message.author.id)
         nombre2 = "<@!" + nombre1 + ">"
@@ -446,31 +532,17 @@ async def on_message(message):
                     await message.channel.send('Lo siento, no tienes permiso para ejecutar este comando ^_^')
 
     elif message.content.startswith('!tv beso'):
-        if canal == "815063141741363230":
             await besar(message)
-        else:
-            await bots(message)
     elif message.content.startswith('!tv besar'):
-        if canal == "815063141741363230":
             await besar(message)
-        else:
-            await bots(message)
     elif message.content.startswith('!tv kiss'):
-        if canal == "815063141741363230":
             await besar(message)
-        else:
-            await bots(message)
     elif message.content.startswith('inquisidor sabe dar masajes en los pies'):
             await message.channel.send('Recuerdo cuando mi pelotón me preguntaba eso cuando nuestra misión era cazar al Líder Hereje. Era asqueroso, pero daba sensación de fraternidad.')
     elif message.content.startswith('Inquisidor sabe dar masajes en los pies'):
             await message.channel.send('Recuerdo cuando mi pelotón me preguntaba eso cuando nuestra misión era cazar al Líder Hereje. Era asqueroso, pero daba sensación de fraternidad.')
-    elif message.content.startswith('!tv meme'):
-        if canal == "815063141741363230":
-            await desicionmeme(message)
-        elif canal == "788838176281985104":
-            await desicionmeme(message)
-        else:
-            await botmeme(message)
+    #elif message.content.startswith('!tv meme'):
+            #await desicionmeme(message)
     elif message.content.startswith('takaimayo'):
             await message.channel.send('Watashi wa takaimayo to oniichan aishiteru :3.')
     elif message.content.startswith('Takaimayo'):
@@ -487,372 +559,153 @@ async def on_message(message):
     elif message.content.startswith('!tv tu o chocolat'):
             await message.channel.send('Chocolat es muy buena amiga y BOT. Los dos hacemos bien nuestro trabajo :3.')
     elif message.content.startswith("!tv diversity"):
-        if canal == "815063141741363230":
             await message.delete()
             await diversity(message)
-        else:
-            await bots(message)
     elif message.content.startswith("!tv diversidad"):
-        if canal == "815063141741363230":
             await message.delete()
             await diversity(message)
-        else:
-            await bots(message)
     elif message.content.startswith("!tv lgbt"):
-        if canal == "815063141741363230":
             await message.delete()
             await diversity(message)
-        else:
-            await bots(message)
     elif message.content.startswith("!tv lgtb"):
-        if canal == "815063141741363230":
             await message.delete()
             await message.channel.send('La B va antes de la T :3.')
-        else:
-            await bots(message)
     elif message.content.startswith("!tv LGBT"):
-        if canal == "815063141741363230":
             await message.delete()
             await diversity(message)
-        else:
-            await bots(message)
     elif message.content.startswith("!tv LGTB"):
-        if canal == "815063141741363230":
             await message.delete()
             await message.channel.send('La B va antes de la T :3.')
-        else:
-            await bots(message)
     elif message.content.startswith("!tv horoscopo"):
-        if canal == "815063141741363230":
             await horoscopo(message)
-        else:
-            await bots(message)
     elif message.content.startswith("!tv horóscopo"):
-        if canal == "815063141741363230":
             await horoscopo(message)
-        else:
-            await bots(message)
     elif message.content.startswith("!tv autobiografia"):
             await auto1(message)
     elif message.content.startswith("!tv autobiografía"):
             await auto1(message)
     elif message.content.startswith("!tv sobreti"):
-        if canal == "815063141741363230":
             await sobremi(message)
-        else:
-            await bots(message)
     elif message.content.startswith("!tv warthog"):
-        if canal == "815063141741363230":
             await espachurrar(message)
-        else:
-            await bots(message)
     elif message.content.startswith("!tv ghost"):
-        if canal == "815063141741363230":
             await espachurrar(message)
-        else:
-            await bots(message)
     elif message.content.startswith("!tv run"):
-        if canal == "815063141741363230":
             await espachurrar(message)
-        else:
-            await bots(message)
     elif message.content.startswith("!tv espachurrar"):
-        if canal == "815063141741363230":
             await espachurrar(message)
-        else:
-            await bots(message)
     elif message.content.startswith("!tv kill"):
-        if canal == "815063141741363230":
             await matar(message)
-        else:
-            await bots(message)
     elif message.content.startswith("!tv matar"):
-        if canal == "815063141741363230":
             await matar(message)
-        else:
-            await bots(message)
     elif message.content.startswith("!tv scorpion"):
-        if canal == "815063141741363230":
             await scorpion(message)
-        else:
-            await bots(message)
     elif message.content.startswith("!tv tank"):
-        if canal == "815063141741363230":
             await scorpion(message)
-        else:
-            await bots(message)
     elif message.content.startswith("!tv tanque"):
-        if canal == "815063141741363230":
             await scorpion(message)
-        else:
-            await bots(message)
     elif message.content.startswith("!tv sniper"):
-        if canal == "815063141741363230":
             await sniper(message)
-        else:
-            await bots(message)
     elif message.content.startswith("!tv snipe"):
-        if canal == "815063141741363230":
             await sniper(message)
-        else:
-            await bots(message)
     elif message.content.startswith("!tv teabag"):
-        if canal == "815063141741363230":
             await teabag(message)
-        else:
-            await bots(message)
     elif message.content.startswith("!tv banshee"):
-        if canal == "815063141741363230":
             await banshee(message)
-        else:
-            await bots(message)
     elif message.content.startswith("!tv nade"):
-        if canal == "815063141741363230":
             await granada(message)
-        else:
-            await bots(message)
     elif message.content.startswith("!tv 8ball"):
-        if canal == "815063141741363230":
             await ball(message)
-        else:
-            await bots(message)
     elif message.content.startswith("!tv bola8"):
-        if canal == "815063141741363230":
             await bola8(message)
-        else:
-            await bots(message)
     elif message.content.startswith("!tv bolaocho"):
-        if canal == "815063141741363230":
             await bolaocho(message)
-        else:
-            await bots(message)
     elif message.content.startswith("!tv bolanegra"):
-        if canal == "815063141741363230":
             await bolanegra(message)
-        else:
-            await bots(message)
     elif message.content.startswith("!tv pregúnta"):
-        if canal == "815063141741363230":
             await question(message)
-        else:
-            await bots(message)
     elif message.content.startswith("!tv pregunta"):
-        if canal == "815063141741363230":
             await pregunta(message)
-        else:
-            await bots(message)
     elif message.content.startswith("!tv question"):
-        if canal == "815063141741363230":
             await question2(message)
-        else:
-            await bots(message)
     elif message.content.startswith("!tv espada"):
-        if canal == "815063141741363230":
             await espada(message)
-        else:
-            await bots(message)
     elif message.content.startswith("!tv sword"):
-        if canal == "815063141741363230":
             await espada(message)
-        else:
-            await bots(message)
     elif message.content.startswith("!tv escopada"):
-        if canal == "815063141741363230":
             await espada(message)
-        else:
-            await bots(message)
     elif message.content.startswith("!tv 8 ball"):
-        if canal == "815063141741363230":
             await message.channel.send("Mira we, si no quieres que explote como lo hizo 343 Guilty Spark, pon 8ball, no 8 ball.")
-        else:
-            await bots(message)
     elif message.content.startswith("!tv encuesta"):
             await encuesta(message)
     elif message.content.startswith("!tv poll"):
             await poll(message)
     elif message.content.startswith("!tv update"):
-            nombre1 = str(message.author.id)
-            nombre2 = "<@!" + nombre1 + ">"
-            if nombre2 == "<@!721920162005123142>":
-                await update(message)
-            else:
-                await message.channel.send('Lo siento, no tienes permiso para ejecutar este comando ^_^')
+            await update(message)
+    elif message.content.startswith("!tv vote"):
+            await vote(message)
     elif message.content.startswith("!tv avatar"):
-        if canal == "815063141741363230":
             await avatar(message)
-        else:
-            await bots(message)
     elif message.content.startswith("!tv foto"):
-        if canal == "815063141741363230":
             await avatar(message)
-        else:
-            await bots(message)
     elif message.content.startswith("!tv confesion"):
-        if canal == "815063141741363230":
             await confesion(message)
-        else:
-            await bots(message)
     elif message.content.startswith("!tv confession"):
-        if canal == "815063141741363230":
             await confession(message)
-        else:
-            await bots(message)
     elif message.content.startswith("!tv confesión"):
-        if canal == "815063141741363230":
             await confesionn(message)
-        else:
-            await bots(message)
     elif message.content.startswith("!tv equipo"):
-        if canal == "815063141741363230":
             await equipo(message)
-        else:
-            await bots(message)
     elif message.content.startswith("!tv team"):
-        if canal == "815063141741363230":
             await equipo(message)
-        else:
-            await bots(message)
     elif message.content.startswith("!tv peek"):
-        if canal == "815063141741363230":
             await espiar(message)
-        else:
-            await bots(message)
+
     elif message.content.startswith("!tv espiar"):
-        if canal == "815063141741363230":
             await espiar(message)
-        else:
-            await bots(message)
+
     elif message.content.startswith("!tv apuntar"):
-        if canal == "815063141741363230":
             await espiar(message)
-        else:
-            await bots(message)
-    elif message.content.startswith("!tv wraith"):
-        if canal == "815063141741363230":
-            await wraith(message)
-        else:
-            await bots(message)  
     elif message.content.startswith("!tv warith"):
-        if canal == "815063141741363230":
             await wraith(message)
-        else:
-            await bots(message)
     elif message.content.startswith("!tv wairth"):
-        if canal == "815063141741363230":
             await wraith(message)
-        else:
-            await bots(message)
     elif message.content.startswith("!tv wrait"):
-        if canal == "815063141741363230":
             await wraith(message)
-        else:
-            await bots(message)
     elif message.content.startswith("!tv wraih"):
-        if canal == "815063141741363230":
             await wraith(message)
-        else:
-            await bots(message)
     elif message.content.startswith("!tv scorpion covenant"):
-        if canal == "815063141741363230":
             await wraith(message)
-        else:
-            await bots(message)
     elif message.content.startswith("!tv covenant scorpion"):
-        if canal == "815063141741363230":
             await wraith(message)
-        else:
-            await bots(message)
     elif message.content.startswith("!tv covenant tank"):
-        if canal == "815063141741363230":
             await wraith(message)
-        else:
-            await bots(message)
     elif message.content.startswith("!tv tanque covenant"):
-        if canal == "815063141741363230":
             await wraith(message)
-        else:
-            await bots(message)
     elif message.content.startswith("!tv covenant tanq"):
-        if canal == "815063141741363230":
             await wraith(message)
-        else:
-            await bots(message)
     elif message.content.startswith("!tv scarab"):
-        if canal == "815063141741363230":
             await message.channel.send("Ya quisieras poder manejar un scarab XD.")
-        else:
-            await bots(message)
     elif message.content.startswith("!tv rocket"):
-        if canal == "815063141741363230":
             await rocket(message)
-        else:
-            await bots(message)
     elif message.content.startswith("!tv rox"):
-        if canal == "815063141741363230":
             await rocket(message)
-        else:
-            await bots(message)
     elif message.content.startswith("!tv cohete"):
-        if canal == "815063141741363230":
             await rocket(message)
-        else:
-            await bots(message)
     elif message.content.startswith("!tv bazuca"):
-        if canal == "815063141741363230":
             await rocket(message)
-        else:
-            await bots(message)
     elif message.content.startswith("!tv basuca"):
-        if canal == "815063141741363230":
             await rocket(message)
-        else:
-            await bots(message)
     elif message.content.startswith("!tv lanzacohete"):
-        if canal == "815063141741363230":
             await rocket(message)
-        else:
-            await bots(message)
     elif message.content.startswith("!tv lanza coh"):
-        if canal == "815063141741363230":
             await message.channel.send("Escribe 'Lanzacohetes', no 'Lanza cohetes' que me la pones difícil pelotudo.")
-        else:
-            await bots(message)
-    elif message.content.startswith("ch!"):
-        if canal == "815063141741363230":
-            return
-        elif canal == "788838176281985104":
-            return
-        else:
-            await asyncio.sleep(1)
-            await message.channel.purge(limit=1)
-            await bots(message)
-    elif message.content.startswith("$chnick"):
-            await asyncio.sleep(1)
-            await message.delete()
     elif message.content.startswith("!tv del"):
             delt1 = message.content
             listadel = list(delt1.split(" "))
             n = int(listadel[2])         
+            await message.delete()
             await message.channel.purge(limit=n)
-    elif message.content.startswith("!tv feedback"):
-        if canal == "815063141741363230":
-            await feedback(message)
-        else:
-            await bots(message)
-    elif message.content.startswith("!tv mejo"):
-            nombre1 = str(message.author.id)
-            nombre2 = "<@!" + nombre1 + ">"
-            if nombre2 == "<@!721920162005123142>":
-                await mejoden(message)
-            else:
-                await message.channel.send('No tienes permiso para ejecutar este comando.')
-    elif message.content.startswith("!tv jodbot"):
-            nombre1 = str(message.author.id)
-            nombre2 = "<@!" + nombre1 + ">"
-            if nombre2 == "<@!721920162005123142>":
-                await jodbot(message)
-            else:
-                await message.channel.send('No tienes permiso para ejecutar este comando.') 
 
 async def timehora(message):
 
@@ -933,7 +786,7 @@ async def ayuda(message):
 
     )
     #message_channel = client.get_channel(803850947734011925)
-    embed.set_footer(text="v2.5")
+    embed.set_footer(text="v4.1")
     await message.author.send(embed = embed)
     await message.channel.send("Revisa tu chat privado ^_^")
 
@@ -1054,7 +907,6 @@ async def diversity(message):
     print(linea)
     embed.set_image(url=linea)
     embed.set_footer(text="Comando secreto 1/5")
-    await message.channel.send(nombre2)
     await message.channel.send(embed=embed)
 
 async def horoscopo(message):
@@ -2294,6 +2146,27 @@ async def poll(message):
     except:
         await message.channel.send("We, pero escribe algo._.")
 
+
+async def vote(message):
+    try:
+        msg = message.content
+        mensaje1 = list(msg.split(" "))
+        mensaje1.remove("!tv")
+        mensaje1.remove("vote")
+        mensaje2 = ' '.join([str(item) for item in mensaje1 ])
+
+        embed = discord.Embed(
+
+            title="Nominados",
+            description=mensaje2,
+            color=discord.Colour.random()
+
+        )
+        await message.delete()
+        message = await message.channel.send(embed=embed)
+    except:
+        await message.channel.send("We, pero escribe algo._.")
+
 async def update(message):
     handler = open('msgdia.txt')
     msgdia1 = handler.read()
@@ -2304,7 +2177,7 @@ async def update(message):
         color=discord.Colour.random()
 
     )
-    message_channel = client.get_channel(789385421083508737)
+    message_channel = client.get_channel(819262395481587832)
     await message.delete()
     await message_channel.send(embed = embed)
 
@@ -2611,163 +2484,6 @@ async def gifrock(message):
     print(linea)
     embed.set_image(url=linea)
     await message.channel.send(embed=embed)
-
-async def groserias(message):
-    mensaje = str(message.content)
-    autor = f"{message.author.name}"
-    embed = discord.Embed(
-
-        title=f"Aviso a {message.author.name}:",
-        description="Uso de malas palabras.",
-        color=discord.Colour.random()
-
-    )
-    await message.channel.send(embed=embed)
-    await message.delete()
-
-    embed2 = discord.Embed(
-
-        title="Reporte de " + autor + ":",
-        description="Uso de malas palabras.",
-        color=discord.Colour.random()
-
-    )
-    embed2.add_field(name="Mensaje: ", value=mensaje, inline=False)
-    message_channel = client.get_channel(815063853494829066)    
-    await message_channel.send(embed=embed2)
-
-async def bots(message):
-    try:
-        mensaje = str(message.content)
-        autor = f"{message.author.name}"
-        embed = discord.Embed(
-
-            title=f"Aviso a {message.author.name}:",
-            description="Uso de bot fuera de canal #comandos-bot💻.",
-            color=discord.Colour.random()
-
-        )
-        await message.channel.send(embed=embed)
-        #message_channel = client.get_channel(815063853494829066)    
-        #await message_channel.send(embed=embed)
-        await message.delete()
-        
-    except:
-        return
-
-async def botmeme(message):
-    embed = discord.Embed(
-
-        title=f"Aviso a {message.author.name}:",
-        description="Uso de bot fuera de canal #😂-memes.",
-        color=discord.Colour.random()
-
-    )
-    await message.channel.send(embed=embed)
-    #message_channel = client.get_channel(815063853494829066)    
-    #await message_channel.send(embed=embed)
-    await message.delete()
-
-async def repormiembros(message):
-    embed = discord.Embed(
-
-        title=f"Aviso a {message.author.name}:",
-        description="Mención indebida de @Miembros del clan",
-        color=discord.Colour.random()
-
-    )
-    await message.channel.send(embed=embed)
-    message_channel = client.get_channel(815063853494829066)    
-    await message_channel.send(embed=embed)
-    await message.delete()
-
-async def agresivo(message):
-    mensaje = str(message.content)
-    autor = f"{message.author.name}"
-    embed = discord.Embed(
-
-        title=f"Aviso a {message.author.name}:",
-        description="Agresividad innecesaria.",
-        color=discord.Colour.random()
-
-    )
-    await message.channel.send(embed=embed)
-    await message.delete()
-
-    embed2 = discord.Embed(
-
-        title="Reporte de " + autor + ":",
-        description="Agresividad innecesaria.",
-        color=discord.Colour.random()
-
-    )
-    embed2.add_field(name="Mensaje: ", value=mensaje, inline=False)
-    message_channel = client.get_channel(815063853494829066)
-    await message_channel.send(embed=embed2)
-
-async def feedback(message):
-    try:
-        mensaje = message.content
-        listamensaje = list(mensaje.split(" "))
-        uy = listamensaje[2]
-        listamensaje.remove("!tv")
-        listamensaje.remove("feedback")
-        mensaje2 = ' '.join([str(item) for item in listamensaje])
-        f=open("feedback.txt", "a+")
-        f.write("\n" + mensaje2)
-        await message.channel.send("Feedback recibido. ¡Gracias por tus comentarios!")
-        await message.delete()
-        await asyncio.sleep(1)
-        await message.channel.purge(limit=1)
-    except:
-        await message.channel.send("Tienes que escribir tu feedback después del comando.")
-        await message.delete()
-        await asyncio.sleep(1)
-        await message.channel.purge(limit=1)
-
-async def mejoden(message):
-    try:
-        mensaje = message.content
-        listamensaje = list(mensaje.split(" "))
-        usuario = listamensaje[2]
-        mensaje = str(message.content)
-        autor = f"{message.author.name}"
-        embed = discord.Embed(
-
-            title=f"Aviso a " + usuario,
-            description="Comenzó a molestar a Olivia",
-            color=discord.Colour.random()
-
-        )
-        await message.channel.send(embed=embed)
-        message_channel = client.get_channel(815063853494829066)    
-        await message_channel.send(embed=embed)
-        await message.delete()
-        
-    except:
-        await message.delete()
-
-async def jodbot(message):
-    try:
-        mensaje = message.content
-        listamensaje = list(mensaje.split(" "))
-        usuario = listamensaje[2]
-        mensaje = str(message.content)
-        autor = f"{message.author.name}"
-        embed = discord.Embed(
-
-            title=f"Aviso a " + usuario,
-            description="Insultó al bot.",
-            color=discord.Colour.random()
-
-        )
-        await message.channel.send(embed=embed)
-        message_channel = client.get_channel(815063853494829066)    
-        await message_channel.send(embed=embed)
-        await message.delete()
-        
-    except:
-        await message.delete()
 
 
 client.run(os.getenv('TOKEN'))
