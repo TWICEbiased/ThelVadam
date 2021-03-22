@@ -1,7 +1,9 @@
 Thel 'Vadam
 
-Ha concluido el soporte técnico de Thel 'Vadam. ¡Gracias por todo su apoyo! Esperamos contar con vosotros para proyectos futuros.
+Ha concluído el soporte técnico de Thel 'Vadam. ¡Gracias por todo su apoyo! Esperamos contar con vosotros para proyectos futuros.
 
 Somos avalancha, somos de Reach. 
 Somos determinación, somos honor.
 Somos RAR. Somos Spartan.
+
+DISCLAIMER: Este software está licenciado bajo la GNU GPL v3. Para más información, revise el archivo COPYING del repositorio de GitHub donde se encuentra el código fuente del mismo, o visite https://www.gnu.org/licenses/gpl-3.0.html

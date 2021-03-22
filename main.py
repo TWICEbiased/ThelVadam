@@ -1,4 +1,4 @@
-#ThelVadam, bot para Discord hecho por Memo Flores, v4.1
+#ThelVadam, bot para Discord hecho por Olivia Flores, v4.1
 
 """ This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
